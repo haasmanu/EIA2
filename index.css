@@ -2,8 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
-@media screen and (max-width: 570px) {
-.divbox {
+
+div {
 	background-color: #F0F8FF;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -18,6 +18,6 @@
 	float: left;
 }
 
-images {
-	max-width: 80%;
+img {
+	max-width: 50%;
 }
