@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+@media screen and (max-width: 570px) {
+.divbox {
+	background-color: #F0F8FF;
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 700px;
+	width: 90%;
+	padding: 1em;
+	line-height: 1em;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	position: relative;
+	text-align: center;
+	float: left;
+}
+
+images {
+	max-width: 90%;
+}
