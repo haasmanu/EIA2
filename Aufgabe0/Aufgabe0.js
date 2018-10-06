@@ -1,8 +1,8 @@
 function Funktion() {
-    var Ergebnis = prompt("Ergebnis eingeben...");
+    var Ergebnis = prompt("Sag mir deinen Namen");
     if (Ergebnis != null) {
         document.getElementById("solution").innerHTML =
-            Ergebnis + " minus 1 that`s 3, quick Maths...";
+            "Uhhhh" + Ergebnis + " drueckt gerne auf Knoepfe!!!";
     }
 }
 //# sourceMappingURL=Aufgabe0.js.map
