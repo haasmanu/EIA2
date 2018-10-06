@@ -2,22 +2,36 @@
 
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
+html {
+	font-size: 1em;
+	font-family: 'Fugaz One', cursive;
+}
 
-div {
+body {
+	background-color: #696969;
+	line-height: 1.3em;
+	margin: 0;
+}
+
+.divbox {
 	background-color: #F0F8FF;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 30%;
+	margin-right: 30%;
 	height: 700px;
-	width: 90%;
+	width: 40%;
 	padding: 1em;
 	line-height: 1em;
-	margin-top: 100px;
 	margin-bottom: 20px;
 	position: relative;
 	text-align: center;
 	float: left;
 }
 
+div .Description {
+	font-size: 2em;
+	line-height: 1em;
+}
+
 img {
-	max-width: 50%;
+	max-width: 30%;
 }
