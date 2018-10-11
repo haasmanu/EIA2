@@ -1,10 +1,10 @@
 function Funktion(): void {
-var Ergebnis : string = prompt("Sag mir deinen Namen");
+var ERGEBNIS: string = prompt("Sag mir deinen Namen");
 
-if (Ergebnis != null) {
+if (ERGEBNIS != null) {
     document.getElementById("solution").innerHTML =
-    "Uhhhh "  +  Ergebnis + " na wie geht's dir? Lange nicht gesehen";
+    "Uhhhh "  +  ERGEBNIS + " na wie geht's dir? Lange nicht gesehen";
     }
 
-    console.log(Ergebnis + " schoen dich hier zu sehen.")
+    console.log(ERGEBNIS + " schoen dich hier zu sehen.");
 }

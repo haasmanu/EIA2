@@ -1,9 +1,9 @@
 function Funktion() {
-    var Ergebnis = prompt("Sag mir deinen Namen");
-    if (Ergebnis != null) {
+    var ERGEBNIS = prompt("Sag mir deinen Namen");
+    if (ERGEBNIS != null) {
         document.getElementById("solution").innerHTML =
-            "Uhhhh " + Ergebnis + " na wie geht's dir? Lange nicht gesehen";
+            "Uhhhh " + ERGEBNIS + " na wie geht's dir? Lange nicht gesehen";
     }
-    console.log(Ergebnis + " schoen dich hier zu sehen.");
+    console.log(ERGEBNIS + " schoen dich hier zu sehen.");
 }
 //# sourceMappingURL=Aufgabe0.js.map
