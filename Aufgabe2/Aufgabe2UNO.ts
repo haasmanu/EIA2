@@ -666,33 +666,53 @@ namespace Aufgabe2UNO {
                              C50, C51, C52, C53, C54, C55, C56, C57, C58, C59, C60, C61, C62, C63, C64, C65, C66, C67, C68, C69, C70, C71, C72, C73,
                              C74, C75, C76, C77, C78, C79, C80, C81, C82, C83, C84, C85, C86, C87, C88, C89, C90, C91, C92, C93, C94, C95, C96, C97,
                              C98, C99, C100, C101, C102, C103, C104, C105, C106, C107 ];
-    
-   /* Frage nach Anzahl der Handkarten*/ 
-    
+
+  function main(): void {
     let y: string = prompt("Gib Anzahl der Karten an");
     let x: number;
     x = Number(y);
-    
-    for (let i: number = 0; i < x; i++) {
-       
-        /* Random Number*/
-        let randNumber = STAPEL[Math.floor(Math.random() * STAPEL.length)];
-    }
-    
-   
-     function PlaceDiv(_wert: string, _farbe: string): void {
-        let div: HTMLDivElement = document.createElement("div");
-        document.body.appendChild(div);
 
-        let s: CSSStyleDeclaration = div.style;
-        s.border = "thin solid black";
-        s.position = "absolute";
-        s.backgroundColor = _farbe;
-        s.width = "100px";
-        s.height = "200px";
-        s.left = "20px";
-        s.top = "600px";
+    for (let i: number = 0; i < x; i++) {
+   
+
+   let randNumber = STAPEL[Math.floor(Math.random() * STAPEL.length)];
+    PlaceDiv(randNumber.wert, randNumber.farbe);
+}
+
+
+function PlaceDiv(_wert: string, _farbe: string): void {
+    let element: HTMLDivElement = document.createElement("div");
+    document.getElementById("Hand").appendChild(element);
+    let s: CSSStyleDeclaration = element.style;
+    s.border = "thin solid black";
+    s.backgroundColor = _farbe;
+    s.top = "600px";
+    s.width = "100px";
+    s.height = "200px";
+    s.margin = "5px";
     }
-        
-        
+
+function Ablage(): void {
+    let div: HTMLDivElement = document.createElement("div");
+    document.body.appendChild(div);
+    div.setAttribute("id", "Ablage");
+
+    document.getElementById("Ablage").innerHTML += "Ablage";
+
+    let s: CSSStyleDeclaration = div.style;
+    s.border = "thin solid black";
+    s.textAlign = "center";
+    s.position = "absolute";
+    s.backgroundColor = "white";
+    s.width = "100px";
+    s.height = "200px";
+    s.right = "50px";
+    s.top = "20px";
+}
+    
+ Ablage();
+}  
+  
+
+    document.addEventListener("DOMContentLoaded", main);
 }
