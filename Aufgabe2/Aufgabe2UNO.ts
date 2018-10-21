@@ -735,4 +735,4 @@ function RestKarten(): void {
   
 
     document.addEventListener("DOMContentLoaded", main);
-}
+ }
