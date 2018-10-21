@@ -8,7 +8,7 @@ namespace Aufgabe2UNO {
    
     
    
-    let STAPEL: Cards [] = [
+    let Stapel: Cards [] = [
         {wert: "0", farbe: "red"}, {wert: "1", farbe: "red"}, {wert: "1", farbe: "red"}, {wert: "2", farbe: "red"}, {wert: "2", farbe: "red"}, {wert: "3", farbe: "red"}, {wert: "3", farbe: "red"}, {wert: "4", farbe: "red"}, {wert: "4", farbe: "red"}, {wert: "5", farbe: "red"}, {wert: "5", farbe: "red"},
         {wert: "6", farbe: "red"}, {wert: "6", farbe: "red"}, {wert: "7", farbe: "red"}, {wert: "7", farbe: "red"}, {wert: "8", farbe: "red"}, {wert: "8", farbe: "red"}, {wert: "9", farbe: "red"}, {wert: "9", farbe: "red"}, {wert: "Aussetzen", farbe: "red"}, {wert: "Aussetzen", farbe: "red"}, {wert: "2 mehr", farbe: "red"}, {wert: "2 mehr", farbe: "red"}, {wert: "Wechsel", farbe: "red"}, {wert: "Wechsel", farbe: "red"},
         {wert: "0", farbe: "green"}, {wert: "1", farbe: "green"}, {wert: "1", farbe: "green"}, {wert: "2", farbe: "green"}, {wert: "2", farbe: "green"}, {wert: "3", farbe: "green"}, {wert: "3", farbe: "green"}, {wert: "4", farbe: "green"}, {wert: "4", farbe: "green"}, {wert: "5", farbe: "green"}, {wert: "5", farbe: "green"},
@@ -27,9 +27,27 @@ namespace Aufgabe2UNO {
     for (let i: number = 0; i < x; i++) {
    
 
-   let randNumber = STAPEL[Math.floor(Math.random() * STAPEL.length)];
+   let randNumber = Stapel[Math.floor(Math.random() * Stapel.length)];
     PlaceDiv(randNumber.wert, randNumber.farbe);
 }
+
+/*function PlaceDiv(_wert: string, _farbe: string): void {
+    let div: HTMLDivElement = document.createElement("div");
+    document.body.appendChild(div);
+    div.setAttribute("class", "Hand");
+    document.getElementsByClassName("Hand")_wert.innerHTML;
+    let s: CSSStyleDeclaration = div.style;
+    s.border = "thin solid black";
+    s.backgroundColor = _farbe;
+    s.position = "relative";
+    s.textAlign = "center";
+    s.top = "600px";
+    s.width = "100px";
+    s.height = "200px";
+    s.margin = "5px";
+    
+    if (_farbe == "black") { s.color = "white"; }
+    }*/
 
 
 function PlaceDiv(_wert: string, _farbe: string): void {
