@@ -461,6 +461,9 @@ var Aufgabe2UNO;
             s.width = "100px";
             s.height = "200px";
             s.margin = "5px";
+            if (_farbe == "black") {
+                s.color = "white";
+            }
         }
         function Ablage() {
             let div = document.createElement("div");
@@ -478,6 +481,22 @@ var Aufgabe2UNO;
             s.top = "20px";
         }
         Ablage();
+        function RestKarten() {
+            let div = document.createElement("div");
+            document.body.appendChild(div);
+            div.setAttribute("id", "RestKarten");
+            document.getElementById("RestKarten").innerHTML += "Rest Karten";
+            let s = div.style;
+            s.border = "thin solid black";
+            s.textAlign = "center";
+            s.position = "absolute";
+            s.backgroundColor = "white";
+            s.width = "100px";
+            s.height = "200px";
+            s.left = "50px";
+            s.top = "20px";
+        }
+        RestKarten();
     }
     document.addEventListener("DOMContentLoaded", main);
 })(Aufgabe2UNO || (Aufgabe2UNO = {}));
