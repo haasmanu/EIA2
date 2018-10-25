@@ -48,10 +48,7 @@ namespace Aufgabe2UNO {
             let s: CSSStyleDeclaration = div.style;
             s.border = "thin solid black";
             s.backgroundColor = _farbe;
-            s.position = "relative";
-            s.textAlign = "center";
             s.top = "600px";
-            s.width = "100px";
             s.height = "200px";
             s.margin = "5px";
             
