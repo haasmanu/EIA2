@@ -1,7 +1,7 @@
 var Aufgabe2UNO;
 (function (Aufgabe2UNO) {
     /* Sorry fuer das lange Interface, mir ist ein besserer Weg eingefallen, ab Zeile 664 wird es wieder spannend*/
-    let Stapel = [
+    let stapel = [
         { wert: "0", farbe: "red" }, { wert: "1", farbe: "red" }, { wert: "1", farbe: "red" }, { wert: "2", farbe: "red" }, { wert: "2", farbe: "red" }, { wert: "3", farbe: "red" }, { wert: "3", farbe: "red" }, { wert: "4", farbe: "red" }, { wert: "4", farbe: "red" }, { wert: "5", farbe: "red" }, { wert: "5", farbe: "red" },
         { wert: "6", farbe: "red" }, { wert: "6", farbe: "red" }, { wert: "7", farbe: "red" }, { wert: "7", farbe: "red" }, { wert: "8", farbe: "red" }, { wert: "8", farbe: "red" }, { wert: "9", farbe: "red" }, { wert: "9", farbe: "red" }, { wert: "Aussetzen", farbe: "red" }, { wert: "Aussetzen", farbe: "red" }, { wert: "2 mehr", farbe: "red" }, { wert: "2 mehr", farbe: "red" }, { wert: "Wechsel", farbe: "red" }, { wert: "Wechsel", farbe: "red" },
         { wert: "0", farbe: "green" }, { wert: "1", farbe: "green" }, { wert: "1", farbe: "green" }, { wert: "2", farbe: "green" }, { wert: "2", farbe: "green" }, { wert: "3", farbe: "green" }, { wert: "3", farbe: "green" }, { wert: "4", farbe: "green" }, { wert: "4", farbe: "green" }, { wert: "5", farbe: "green" }, { wert: "5", farbe: "green" },
@@ -15,16 +15,24 @@ var Aufgabe2UNO;
         let y = prompt("Gib Anzahl der Karten an");
         let x;
         x = Number(y);
+        let hand = [];
         for (let i = 0; i < x; i++) {
-            let randNumber = Stapel[Math.floor(Math.random() * Stapel.length)];
-            PlaceDiv(randNumber.wert, randNumber.farbe);
+            let randCard = stapel[Math.floor(Math.random() * stapel.length)];
+            console.log(randCard);
+            hand[i] = randCard;
         }
-        /*function PlaceDiv(_wert: string, _farbe: string): void {
-            let div: HTMLDivElement = document.createElement("div");
-            document.body.appendChild(div);
+        displayCards();
+        function displayCards() {
+            for (let j = 0; j < hand.length; j++) {
+                PlaceDiv(hand[j].wert, hand[j].farbe);
+            }
+        }
+        function PlaceDiv(_wert, _farbe) {
+            let div = document.createElement("div");
+            div.innerHTML = _wert;
             div.setAttribute("class", "Hand");
-            document.getElementsByClassName("Hand")_wert.innerHTML;
-            let s: CSSStyleDeclaration = div.style;
+            document.body.appendChild(div);
+            let s = div.style;
             s.border = "thin solid black";
             s.backgroundColor = _farbe;
             s.position = "relative";
@@ -33,23 +41,23 @@ var Aufgabe2UNO;
             s.width = "100px";
             s.height = "200px";
             s.margin = "5px";
-            
-            if (_farbe == "black") { s.color = "white"; }
-            }*/
-        function PlaceDiv(_wert, _farbe) {
-            let element = document.createElement("div");
-            document.getElementById("Hand").appendChild(element);
-            let s = element.style;
-            s.border = "thin solid black";
-            s.backgroundColor = _farbe;
-            s.top = "600px";
-            s.width = "100px";
-            s.height = "200px";
-            s.margin = "5px";
             if (_farbe == "black") {
                 s.color = "white";
             }
         }
+        /*   function PlaceDiv(_wert: string, _farbe: string): void {
+               let element: HTMLDivElement = document.createElement("div");
+               document.getElementById("Hand").appendChild(element);
+               let s: CSSStyleDeclaration = element.style;
+               s.border = "thin solid black";
+               s.backgroundColor = _farbe;
+               s.top = "600px";
+               s.width = "100px";
+               s.height = "200px";
+               s.margin = "5px";
+   
+               if (_farbe == "black") { s.color = "white"; }
+           }*/
         function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
