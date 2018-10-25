@@ -48,8 +48,6 @@ namespace Aufgabe2UNO {
             let s: CSSStyleDeclaration = div.style;
             s.border = "thin solid black";
             s.backgroundColor = _farbe;
-            s.top = "600px";
-            s.height = "200px";
             s.margin = "5px";
             
 

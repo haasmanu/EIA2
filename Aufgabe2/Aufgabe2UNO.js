@@ -35,8 +35,6 @@ var Aufgabe2UNO;
             let s = div.style;
             s.border = "thin solid black";
             s.backgroundColor = _farbe;
-            s.top = "600px";
-            s.height = "200px";
             s.margin = "5px";
             if (_farbe == "black") {
                 s.color = "white";

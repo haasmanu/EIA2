@@ -1,5 +1,6 @@
 .Hand {
 	width: 100px;
+	height:200px;
 	position: relative;
 	display: inline-block;
 	margin-top: 600px;
