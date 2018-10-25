@@ -54,21 +54,6 @@ namespace Aufgabe2UNO {
             if (_farbe == "black") { s.color = "white"; }
         }
 
-
-     /*   function PlaceDiv(_wert: string, _farbe: string): void {
-            let element: HTMLDivElement = document.createElement("div");
-            document.getElementById("Hand").appendChild(element);
-            let s: CSSStyleDeclaration = element.style;
-            s.border = "thin solid black";
-            s.backgroundColor = _farbe;
-            s.top = "600px";
-            s.width = "100px";
-            s.height = "200px";
-            s.margin = "5px";
-
-            if (_farbe == "black") { s.color = "white"; }
-        }*/
-
         function Ablage(): void {
             let div: HTMLDivElement = document.createElement("div");
             document.body.appendChild(div);
