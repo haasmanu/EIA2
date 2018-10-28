@@ -53,7 +53,7 @@ namespace Aufgabe2UNO {
             if (_farbe == "black") { s.color = "white"; }
         }
 
-        function Ablage(): void {
+       /* function Ablage(): void {
             let div: HTMLDivElement = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "Ablage");
@@ -69,7 +69,7 @@ namespace Aufgabe2UNO {
 
             document.getElementById("RestKarten").innerHTML += "Rest Karten";
         }
-        RestKarten();
+        RestKarten();*/
 
     }
 

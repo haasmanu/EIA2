@@ -38,20 +38,23 @@ var Aufgabe2UNO;
                 s.color = "white";
             }
         }
-        function Ablage() {
-            let div = document.createElement("div");
-            document.body.appendChild(div);
-            div.setAttribute("id", "Ablage");
-            document.getElementById("Ablage").innerHTML += "Ablage";
-        }
-        Ablage();
-        function RestKarten() {
-            let div = document.createElement("div");
-            document.body.appendChild(div);
-            div.setAttribute("id", "RestKarten");
-            document.getElementById("RestKarten").innerHTML += "Rest Karten";
-        }
-        RestKarten();
+        /* function Ablage(): void {
+             let div: HTMLDivElement = document.createElement("div");
+             document.body.appendChild(div);
+             div.setAttribute("id", "Ablage");
+ 
+             document.getElementById("Ablage").innerHTML += "Ablage";
+         }
+         Ablage();
+ 
+         function RestKarten(): void {
+             let div: HTMLDivElement = document.createElement("div");
+             document.body.appendChild(div);
+             div.setAttribute("id", "RestKarten");
+ 
+             document.getElementById("RestKarten").innerHTML += "Rest Karten";
+         }
+         RestKarten();*/
     }
     document.addEventListener("DOMContentLoaded", main);
 })(Aufgabe2UNO || (Aufgabe2UNO = {}));
