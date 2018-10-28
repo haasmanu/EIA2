@@ -46,9 +46,8 @@ namespace Aufgabe2UNO {
             div.setAttribute("class", "Hand");
             document.body.appendChild(div);
             let s: CSSStyleDeclaration = div.style;
-            s.border = "thin solid black";
             s.backgroundColor = _farbe;
-            s.margin = "5px";
+          
             
 
             if (_farbe == "black") { s.color = "white"; }
@@ -60,16 +59,6 @@ namespace Aufgabe2UNO {
             div.setAttribute("id", "Ablage");
 
             document.getElementById("Ablage").innerHTML += "Ablage";
-
-            let s: CSSStyleDeclaration = div.style;
-            s.border = "thin solid black";
-            s.textAlign = "center";
-            s.position = "absolute";
-            s.backgroundColor = "white";
-            s.width = "100px";
-            s.height = "200px";
-            s.right = "50px";
-            s.top = "20px";
         }
         Ablage();
 
@@ -79,16 +68,6 @@ namespace Aufgabe2UNO {
             div.setAttribute("id", "RestKarten");
 
             document.getElementById("RestKarten").innerHTML += "Rest Karten";
-
-            let s: CSSStyleDeclaration = div.style;
-            s.border = "thin solid black";
-            s.textAlign = "center";
-            s.position = "absolute";
-            s.backgroundColor = "white";
-            s.width = "100px";
-            s.height = "200px";
-            s.left = "50px";
-            s.top = "20px";
         }
         RestKarten();
 
