@@ -1,12 +1,13 @@
 namespace Aufgabe2UNO {
 
+    document.addEventListener("DOMContentLoaded", main);
+
+    let hand: Cards[] = [];
+
     interface Cards {
         wert: string;
         farbe: string;
     }
-    /* Sorry fuer das lange Interface, mir ist ein besserer Weg eingefallen, ab Zeile 664 wird es wieder spannend*/
-
-
 
     let stapel: Cards[] = [
         { wert: "0", farbe: "red" }, { wert: "1", farbe: "red" }, { wert: "1", farbe: "red" }, { wert: "2", farbe: "red" }, { wert: "2", farbe: "red" }, { wert: "3", farbe: "red" }, { wert: "3", farbe: "red" }, { wert: "4", farbe: "red" }, { wert: "4", farbe: "red" }, { wert: "5", farbe: "red" }, { wert: "5", farbe: "red" },
@@ -23,55 +24,44 @@ namespace Aufgabe2UNO {
         let y: string = prompt("Gib Anzahl der Karten an");
         let x: number;
         x = Number(y);
-        let hand: Cards[] = [];
+
 
         for (let i: number = 0; i < x; i++) {
-            let randCard: Cards = stapel[Math.floor(Math.random() * stapel.length)];
+            let r: number = Math.floor(Math.random() * stapel.length);
+            let randCard: Cards = stapel[r];
             console.log(randCard);
             hand[i] = randCard;
+            stapel.splice(r, 1);
         }
-        
         displayCards();
+    }
 
-        function displayCards(): void {
-            for (let j: number = 0; j < hand.length; j++) {
-                PlaceDiv(hand[j].wert, hand[j].farbe);
-            }
+
+    function displayCards(): void {
+        for (let j: number = 0; j < hand.length; j++) {
+            placeCards(hand[j].wert, hand[j].farbe);
         }
-
-
-        function PlaceDiv(_wert: string, _farbe: string): void {
-            let div: HTMLDivElement = document.createElement("div");
-            div.innerHTML = _wert;
-            div.setAttribute("class", "Hand");
-            document.body.appendChild(div);
-            let s: CSSStyleDeclaration = div.style;
-            s.backgroundColor = _farbe;
-          
-            
-
-            if (_farbe == "black") { s.color = "white"; }
-        }
-
-       /* function Ablage(): void {
-            let div: HTMLDivElement = document.createElement("div");
-            document.body.appendChild(div);
-            div.setAttribute("id", "Ablage");
-
-            document.getElementById("Ablage").innerHTML += "Ablage";
-        }
-        Ablage();
-
-        function RestKarten(): void {
-            let div: HTMLDivElement = document.createElement("div");
-            document.body.appendChild(div);
-            div.setAttribute("id", "RestKarten");
-
-            document.getElementById("RestKarten").innerHTML += "Rest Karten";
-        }
-        RestKarten();*/
 
     }
 
-    document.addEventListener("DOMContentLoaded", main);
+
+    function placeCards(_wert: string, _farbe: string): void {
+        let div: HTMLDivElement = document.createElement("div");
+        div.innerHTML = _wert;
+        div.setAttribute("class", "Hand");
+        document.body.appendChild(div);
+        let s: CSSStyleDeclaration = div.style;
+        s.backgroundColor = _farbe;
+
+
+
+        if (_farbe == "black") {
+            s.color = "white";
+        }
+
+
+
+
+
+    }
 }
