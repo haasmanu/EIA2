@@ -1,5 +1,5 @@
 .Hand {
-	width: 100px;
+	width: 150px;
 	height:200px;
 	position: relative;
 	display: inline-block;
@@ -11,7 +11,7 @@
 }
 
 #Ablage {
-	width: 100px;
+	width: 150px;
 	height: 200px;
 	border: thin solid black;
 	text-align: center;
@@ -23,7 +23,7 @@
 }
 
 #RestKarten {
-	width: 100px;
+	width: 150px;
 	height: 200px;
 	border: thin solid black;
 	text-align: center;
@@ -33,4 +33,5 @@
 	background-color: white;
 	float: left;
 }
+
 
