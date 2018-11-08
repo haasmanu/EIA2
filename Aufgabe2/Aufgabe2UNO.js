@@ -33,8 +33,8 @@ var Aufgabe2UNO;
     function placeCards(_wert, _farbe) {
         let div = document.createElement("div");
         div.innerHTML = _wert;
-        div.setAttribute("class", "Hand");
-        document.body.appendChild(div);
+        div.setAttribute("class", "Cards");
+        document.getElementById("Hand").appendChild(div);
         let s = div.style;
         s.backgroundColor = _farbe;
         if (_farbe == "black") {

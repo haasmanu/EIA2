@@ -47,8 +47,8 @@ namespace Aufgabe2UNO {
     function placeCards(_wert: string, _farbe: string): void {
         let div: HTMLDivElement = document.createElement("div");
         div.innerHTML = _wert;
-        div.setAttribute("class", "Hand");
-        document.body.appendChild(div);
+        div.setAttribute("class", "Cards");
+        document.getElementById("Hand").appendChild(div);
         let s: CSSStyleDeclaration = div.style;
         s.backgroundColor = _farbe;
 

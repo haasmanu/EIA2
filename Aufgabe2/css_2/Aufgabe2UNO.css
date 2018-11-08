@@ -1,4 +1,4 @@
-.Hand {
+.Cards {
 	width: 150px;
 	height:200px;
 	position: relative;
@@ -23,6 +23,18 @@
 }
 
 #RestKarten {
+	width: 150px;
+	height: 200px;
+	border: thin solid black;
+	text-align: center;
+	margin-left: 50px;
+	margin-top: 20px;
+	position: absolute;
+	background-color: white;
+	float: left;
+}
+
+#Hand {
 	width: 150px;
 	height: 200px;
 	border: thin solid black;
