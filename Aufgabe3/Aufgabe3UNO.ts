@@ -1,6 +1,10 @@
 namespace Aufgabe3UNO {
 
     document.addEventListener("DOMContentLoaded", main);
+     document.getElementById("SortButton").addEventListener("click", sortCards);
+        document.addEventListener("keydown", drawCardIfSpace);
+        document.getElementById("RestKarten").addEventListener("click", drawCard);
+
 
     let hand: Card[] = [];
     let ablageStapel: Card[] = [];
@@ -21,12 +25,7 @@ namespace Aufgabe3UNO {
         { value: "6", color: "yellow" }, { value: "6", color: "yellow" }, { value: "7", color: "yellow" }, { value: "7", color: "yellow" }, { value: "8", color: "yellow" }, { value: "8", color: "yellow" }, { value: "9", color: "yellow" }, { value: "9", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "Wechsel", color: "yellow" }, { value: "Wechsel", color: "yellow" },
         { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }];
 
-    function main(): void {
-        document.getElementById("SortButton").addEventListener("click", sortCards);
-        document.addEventListener("keydown", drawCardIfSpace);
-        document.getElementById("RestKarten").addEventListener("click", drawCard);
-
-        
+    function main(): void {      
         let y: string = prompt("Gib Anzahl der Karten an");
         let wantedCards: number;
         wantedCards = Number(y);
@@ -49,15 +48,15 @@ namespace Aufgabe3UNO {
     }
 
 
-    function placeCard(_wert: string, _farbe: string, _handIndex: number): void {
+    function placeCard(_value: string, _color: string, _handIndex: number): void {
         let div: HTMLDivElement = document.createElement("div");
-        div.innerHTML = _wert;
+        div.innerHTML = _value;
         div.setAttribute("class", "Cards");
         
         document.getElementById("Hand").appendChild(div);
         let s: CSSStyleDeclaration = div.style;
-        s.backgroundColor = _farbe;
-        if (_farbe == "black") {
+        s.backgroundColor = _color;
+        if (_color == "black") {
             s.color = "white";
         }
         let moveToAblage: () => void = function (): void {
