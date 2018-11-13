@@ -1,9 +1,6 @@
 var Aufgabe3UNO;
 (function (Aufgabe3UNO) {
     document.addEventListener("DOMContentLoaded", main);
-    document.getElementById("SortButton").addEventListener("click", sortCards);
-    document.addEventListener("keydown", drawCardIfSpace);
-    document.getElementById("RestKarten").addEventListener("click", drawCard);
     let hand = [];
     let ablageStapel = [];
     let deck = [
@@ -17,13 +14,14 @@ var Aufgabe3UNO;
         { value: "6", color: "yellow" }, { value: "6", color: "yellow" }, { value: "7", color: "yellow" }, { value: "7", color: "yellow" }, { value: "8", color: "yellow" }, { value: "8", color: "yellow" }, { value: "9", color: "yellow" }, { value: "9", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "Wechsel", color: "yellow" }, { value: "Wechsel", color: "yellow" },
         { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }];
     function main() {
+        document.getElementById("SortButton").addEventListener("click", sortCards);
+        document.addEventListener("keydown", drawCardIfSpace);
+        document.getElementById("RestKarten").addEventListener("click", drawCard);
         let y = prompt("Gib Anzahl der Karten an");
         let wantedCards;
         wantedCards = Number(y);
         for (let i = 0; i < wantedCards; i++) {
-            if (!drawCard()) {
-                break;
-            }
+            drawCard();
         }
     }
     function displayCards() {
@@ -52,17 +50,17 @@ var Aufgabe3UNO;
         div.addEventListener("click", moveToAblage);
     }
     function drawCard() {
-        if (deck.length == 0) {
+        if (deck.length <= 0) {
             alert("no more cards!");
-            return false;
         }
-        let r = Math.floor(Math.random() * deck.length);
-        let randomCard = deck[r];
-        console.log(randomCard);
-        hand.push(randomCard);
-        deck.splice(r, 1);
-        displayCards();
-        return true;
+        else {
+            let r = Math.floor(Math.random() * deck.length);
+            let randomCard = deck[r];
+            console.log(randomCard);
+            hand.push(randomCard);
+            deck.splice(r, 1);
+            displayCards();
+        }
     }
     function drawCardIfSpace(_event) {
         var keyCode = _event.keyCode;

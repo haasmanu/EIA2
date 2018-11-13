@@ -1,11 +1,7 @@
 namespace Aufgabe3UNO {
 
     document.addEventListener("DOMContentLoaded", main);
-     document.getElementById("SortButton").addEventListener("click", sortCards);
-        document.addEventListener("keydown", drawCardIfSpace);
-        document.getElementById("RestKarten").addEventListener("click", drawCard);
-
-
+       
     let hand: Card[] = [];
     let ablageStapel: Card[] = [];
     
@@ -25,16 +21,19 @@ namespace Aufgabe3UNO {
         { value: "6", color: "yellow" }, { value: "6", color: "yellow" }, { value: "7", color: "yellow" }, { value: "7", color: "yellow" }, { value: "8", color: "yellow" }, { value: "8", color: "yellow" }, { value: "9", color: "yellow" }, { value: "9", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "Aussetzen", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "2 mehr", color: "yellow" }, { value: "Wechsel", color: "yellow" }, { value: "Wechsel", color: "yellow" },
         { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "Wish Card", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }, { value: "4 mehr", color: "black" }];
 
-    function main(): void {      
+    function main(): void {   
+    
+        document.getElementById("SortButton").addEventListener("click", sortCards);
+        document.addEventListener("keydown", drawCardIfSpace);
+        document.getElementById("RestKarten").addEventListener("click", drawCard);
+        
         let y: string = prompt("Gib Anzahl der Karten an");
         let wantedCards: number;
         wantedCards = Number(y);
 
         for (let i: number = 0; i < wantedCards; i++) {
             
-            if (!drawCard()) {
-                break;
-            }
+            drawCard();
         }
     }
 
@@ -69,19 +68,17 @@ namespace Aufgabe3UNO {
         div.addEventListener("click", moveToAblage);
     }
     
-    function drawCard(): boolean {
-        if (deck.length == 0) {
-            alert("no more cards!");
-            return false;    
+    function drawCard(): void {
+        if (deck.length <= 0) {
+            alert("no more cards!");  
+        } else {
+            let r: number = Math.floor(Math.random() * deck.length);
+            let randomCard: Card = deck[r];
+            console.log(randomCard);
+            hand.push(randomCard);
+            deck.splice(r, 1);
+            displayCards();
         }
-        
-        let r: number = Math.floor(Math.random() * deck.length);
-        let randomCard: Card = deck[r];
-        console.log(randomCard);
-        hand.push(randomCard);
-        deck.splice(r, 1);
-        displayCards();
-        return true;
     }
     
     function drawCardIfSpace (_event: KeyboardEvent): void {
