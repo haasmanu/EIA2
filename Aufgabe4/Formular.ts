@@ -1,9 +1,9 @@
 namespace Aufgabe4Shop {
     
     document.addEventListener("DOMContentLoaded", createFieldset);
-    document.addEventListener("DOMContentLoaded", changedMind);
+    document.addEventListener("DOMContentLoaded", decisionChanger);
 
-    function changedMind(_event: Event): void {
+    function decisionChanger(_event: Event): void {
         let fieldset: HTMLElement = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }

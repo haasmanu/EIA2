@@ -1,8 +1,8 @@
 var Aufgabe4Shop;
 (function (Aufgabe4Shop) {
     document.addEventListener("DOMContentLoaded", createFieldset);
-    document.addEventListener("DOMContentLoaded", changedMind);
-    function changedMind(_event) {
+    document.addEventListener("DOMContentLoaded", decisionChanger);
+    function decisionChanger(_event) {
         let fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
