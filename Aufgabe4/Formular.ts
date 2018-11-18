@@ -129,7 +129,7 @@ namespace Aufgabe4Shop {
         node.innerHTML += childNodeHTML;
     }
     
-    function handleChange(_event: Event) {
+    function handleChange(_event: Event): void {
   
 
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
@@ -281,20 +281,6 @@ namespace Aufgabe4Shop {
         //Adresse
         if (target.id == "adresseTS") {
             let node: HTMLElement = document.getElementById("adressHTML");
-            adress = target.value;
-            let childNodeHTML: string;
-
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-
-            node.innerHTML = childNodeHTML;
-        }
-        
-        //Adresse
-        if (target.id == "ad") {
-            let node: HTMLElement = document.getElementById("adress");
             adress = target.value;
             let childNodeHTML: string;
 

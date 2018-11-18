@@ -234,17 +234,6 @@ var Aufgabe4Shop;
             childNodeHTML += "</a>";
             node.innerHTML = childNodeHTML;
         }
-        //Adresse
-        if (target.id == "ad") {
-            let node = document.getElementById("adress");
-            adress = target.value;
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
         //Price
         let node = document.getElementById("price");
         let childNodeHTML;
