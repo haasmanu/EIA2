@@ -91,7 +91,7 @@ var Aufgabe4Shop;
         childNodeHTML += "<hr>";
         //Shipping
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Lieferoptionen</legend>";
+        childNodeHTML += "<legend>Shipping Methode</legend>";
         for (let i = 0; i < Aufgabe4Shop.shipment.length; i++) {
             childNodeHTML += "<input type='radio' name='Radiogroup4' value='" + i + Aufgabe4Shop.shipment[i].name + " " + Aufgabe4Shop.shipment[i].price + " Euro'  id='shipping" + i + "' />";
             childNodeHTML += "<label for='check" + i + "'>" + Aufgabe4Shop.shipment[i].name + " " + Aufgabe4Shop.shipment[i].price + " Euro</label>";

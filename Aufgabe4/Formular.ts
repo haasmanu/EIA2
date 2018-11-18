@@ -112,7 +112,7 @@ namespace Aufgabe4Shop {
         
         //Shipping
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Lieferoptionen</legend>";
+        childNodeHTML += "<legend>Shipping Methode</legend>";
         for (let i: number = 0; i < shipment.length; i++) {
             childNodeHTML += "<input type='radio' name='Radiogroup4' value='" + i + shipment[i].name + " " + shipment[i].price + " Euro'  id='shipping" + i + "' />";
             childNodeHTML += "<label for='check" + i + "'>" + shipment[i].name + " " + shipment[i].price + " Euro</label>";
