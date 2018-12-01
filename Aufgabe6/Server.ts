@@ -10,13 +10,14 @@ namespace L06_SendData {
     server.addListener("request", handleRequest);  // EventListner wird erstellt verweist auf Funktion handleRequest
     server.addListener("listening", handleListen);  // EventListner wird erstellt verweist auf Funktion handleListen
     server.listen(port); // EventListener auf Port
-
+ 
     function handleListen(): void {  // Funktion handleRequest vom typ void
         console.log("Listening"); // Konsole zeigt "Listening" an
     }
 
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //Funktion handleRequest vom Typ void. Parameter _request:HTTP.IncomingMessage....ganz ehrlich gute Frage was da passiert
         console.log("I hear voices!"); // Konsole zeigt "I hear voices" an
+        console.log(_request.url);
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); // erstellt Header im HTML
         _response.setHeader("Access-Control-Allow-Origin", "*"); // zweiter Header wir erzeugt
