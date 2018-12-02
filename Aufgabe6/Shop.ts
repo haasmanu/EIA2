@@ -1,5 +1,6 @@
 namespace Aufgabe6Shop {
 
+    
     export let tree: Product[] = [{ name: "Fichte", price: 20}, 
                             { name: "Tanne", price: 18}, 
                             { name: "Oregon Pine", price: 22}];
