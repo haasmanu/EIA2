@@ -4,7 +4,7 @@ var Aufgabe6Shop;
     document.addEventListener("DOMContentLoaded", decisionChanger);
     function decisionChanger(_event) {
         let fieldset = document.getElementById("fieldset");
-        fieldset.addEventListener("change", handleChange);
+        fieldset.addEventListener("change", handleChange); 
     }
     let priceTree = 0;
     let priceBalls = 0;

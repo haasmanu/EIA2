@@ -33,7 +33,7 @@ namespace Aufgabe6Shop {
     function createFieldset(): void {
             let node: HTMLElement = document.getElementById("fieldset");
             let childNodeHTML: string;
-        
+       
         //Trees
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Trees</legend>";
