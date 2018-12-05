@@ -1,4 +1,5 @@
 import * as Http from "http";  //Daten werden von der referenzierten Website importiert
+import * as Url from "url";
 
 namespace L06_SendData {
     console.log("Starting server");
@@ -22,7 +23,28 @@ namespace L06_SendData {
         _response.setHeader("content-type", "text/html; charset=utf-8"); // erstellt Header im HTML
         _response.setHeader("Access-Control-Allow-Origin", "*"); // zweiter Header wir erzeugt
 
-        _response.write(_request.url); // _response greift auf URL _request zu
+let articles: string[] = [];
+        let url: string = _request.url;
+        
+        if (url != "/favicon.ico") {
+            let urlInfo: string = Url.parse(url).search.substr(1);
+            let childNodeHTML: string = "<br>";
+            for (let i: number = 0; i < urlInfo.length; i++) {
+                if (urlInfo[i] == "&") {
+                    articles.push(childNodeHTML);
+                    childNodeHTML = "<br>";
+                }
+                else {
+                    childNodeHTML += urlInfo[i];
+                }
+            }
+            articles.push(childNodeHTML);
+
+            for (let i: number = 0; i < articles.length; i++) {
+                _response.write(articles[i]);
+            }
+            console.log(articles);
+        }
         
         _response.end(); // _response wird beendet 
     }
