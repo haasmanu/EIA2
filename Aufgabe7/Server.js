@@ -7,7 +7,6 @@ var L06_SendData;
     let port = process.env.PORT; // Variable port ist vom typ Number, was den Heroku-Server als Port zugewiesen bekommt
     if (port == undefined)
         port = 8100; // wird ihm der 8100 (EIA2 Heroku) zugewiesen
-    let htmlArray = [];
     let server = Http.createServer(); // Computer wird als HTTP-Server gehandhabt und erstellt ein HTTP-Server-Objekt
     server.addListener("request", handleRequest); // EventListner wird erstellt verweist auf Funktion handleRequest
     server.addListener("listening", handleListen); // EventListner wird erstellt verweist auf Funktion handleListen
@@ -20,27 +19,25 @@ var L06_SendData;
         console.log(_request.url);
         _response.setHeader("content-type", "text/html; charset=utf-8"); // erstellt Header im HTML
         _response.setHeader("Access-Control-Allow-Origin", "*"); // zweiter Header wir erzeugt
-        if (_request.url != "/favicon.ico") {
-            let url = Url.parse(_request.url).search.substr(1);
-            let HTML = "<br>";
-            for (let i = 0; i < url.length; i++) {
-                if (url[i] == "&") {
-                    htmlArray.push(HTML);
-                    HTML = "<br>";
+        let articles = [];
+        let url = _request.url;
+        if (url != "/favicon.ico") {
+            let urlInfo = Url.parse(url).search.substr(1);
+            let childNodeHTML = "<br>";
+            for (let i = 0; i < urlInfo.length; i++) {
+                if (urlInfo[i] == "&") {
+                    articles.push(childNodeHTML);
+                    childNodeHTML = "<br>";
                 }
                 else {
-                    if (HTML == "<br>Text") {
-                        HTML = "Adresse";
-                    }
-                    HTML += url[i];
-                    console.log(HTML);
+                    childNodeHTML += urlInfo[i];
                 }
             }
-            htmlArray.push(HTML);
-            for (let i = 0; i < htmlArray.length; i++) {
-                _response.write(htmlArray[i]);
+            articles.push(childNodeHTML);
+            for (let i = 0; i < articles.length; i++) {
+                _response.write(articles[i]);
             }
-            console.log(htmlArray);
+            console.log(articles);
         }
         _response.end(); // _response wird beendet 
     }
