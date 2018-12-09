@@ -2,12 +2,14 @@ namespace Aufgabe7Shop {
     
     document.addEventListener("DOMContentLoaded", createFieldset);
     document.addEventListener("DOMContentLoaded", decisionChanger);
+    document.addEventListener("DOMContentLoaded", init);
 
     function decisionChanger(_event: Event): void {
         let fieldset: HTMLElement = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
     
+    let address: string = "https://eia2-manu.herokuapp.com/";
     
     let priceTree: number = 0;
     let priceBalls: number = 0;
@@ -477,5 +479,154 @@ namespace Aufgabe7Shop {
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;
+    }
+    
+    //Progress. Wurde schon alles ausgewählt? Wenn ja--> nichts, wenn nein--> I'm sorry....
+    function checkProgress(_event: Event): void {
+        if (adress == "" || priceTree == 0 || priceBalls == 0 || priceShipping == 0 || priceCandle == 0 || priceLametta == 0 || priceAdditional == 0 || priceTreeStand == 0 || numberOfBalls == 0 || numberOfCandle == 0 || numberOfLametta == 0) {
+            document.getElementById("notSelectedYet").innerHTML = "I'm sorry, you need to fill out a few more things!";
+        }
+
+        else {
+            document.getElementById("notSelectedYet").innerHTML = "All done, thank you for your order!";
+        }
+    }
+    
+    //7.2
+    function init(_event: Event): void {
+        document.getElementById("button").addEventListener("click", checkProgress);
+        setupAsyncForm();
+    }
+    function setupAsyncForm(): void {
+        let button: Element = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event: Event): void {
+        let checkout: string[] = [];
+        let items: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+
+
+        //trees 
+        let selectedTree: HTMLOptionElement = <HTMLOptionElement>document.getElementById("trees");
+        let color1: string = "Your order:    Tree: " + selectedTree.value.substr(1);
+        sendRequestWithCustomData(color1);
+        checkout.push(color1);
+
+        //balls
+        let selectedBalls: HTMLOptionElement = <HTMLOptionElement>document.getElementById("balls");
+        let color2: string = "Balls: " + selectedBalls.value.substr(1);
+        sendRequestWithCustomData(color2);
+        checkout.push(color2);
+        
+        let selectedBallsAmount: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many1");
+        let color3: string = "Ball amount: " + selectedBallsAmount.value.substr(1);
+        sendRequestWithCustomData(color3);
+        checkout.push(color3);
+        
+        let selectedBalls1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("balls2");
+        let color4: string = "Additional Balls 1: " + selectedBalls1.value.substr(1);
+        sendRequestWithCustomData(color4);
+        checkout.push(color4);
+        
+        let selectedBallsAmount1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many2");
+        let color5: string = "Balls amount 1: " + selectedBallsAmount1.value.substr(1);
+        sendRequestWithCustomData(color5);
+        checkout.push(color5);
+        
+        //candles
+        let selectedCandles: HTMLOptionElement = <HTMLOptionElement>document.getElementById("candles");
+        let color6: string = "Candles: " + selectedCandles.value.substr(1);
+        sendRequestWithCustomData(color6);
+        checkout.push(color6);
+        
+        let selectedCandlesAmount: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many3");
+        let color7: string = "Candles amount: " + selectedCandlesAmount.value.substr(1);
+        sendRequestWithCustomData(color7);
+        checkout.push(color7);
+        
+        let selectedCandles1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("candles2");
+        let color8: string = "Additional Candles 1: " + selectedCandles1.value.substr(1);
+        sendRequestWithCustomData(color8);
+        checkout.push(color8);
+        
+        let selectedCandlesAmount1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many4");
+        let color9: string = "Candles amount 1: " + selectedCandlesAmount1.value.substr(1);
+        sendRequestWithCustomData(color9);
+        checkout.push(color9);
+
+        //lametta
+        let selectedLametta: HTMLOptionElement = <HTMLOptionElement>document.getElementById("lamettas");
+        let color10: string = "Lametta: " + selectedLametta.value.substr(1);
+        sendRequestWithCustomData(color10);
+        checkout.push(color10);
+        
+        let selectedLamettaAmount: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many5");
+        let color11: string = "Lametta amount: " + selectedLamettaAmount.value.substr(1);
+        sendRequestWithCustomData(color11);
+        checkout.push(color11);
+        
+        let selectedLametta1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("lamettas2");
+        let color12: string = "Additional Lametta 1: " + selectedLametta1.value.substr(1);
+        sendRequestWithCustomData(color12);
+        checkout.push(color12);
+        
+        let selectedLamettaAmount1: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Many6");
+        let color13: string = "Lametta amount 1: " + selectedLamettaAmount1.value.substr(1);
+        sendRequestWithCustomData(color13);
+        checkout.push(color13);
+
+        //Top
+        let selectedTreeTop: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup2");
+        let color14: string = "Top: " + selectedTreeTop.value.substr(1);
+        sendRequestWithCustomData(color14);
+        checkout.push(color14);
+        
+        //stand
+        let selectedTreeStand: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup3");
+        let color15: string = "Stand: " + selectedTreeStand.value.substr(1);
+        sendRequestWithCustomData(color15);
+        checkout.push(color15);
+        
+        //shipping
+        let selectedShip: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup4");
+        let color16: string = "Shipping: " + selectedShip.value.substr(1);
+        sendRequestWithCustomData(color16);
+        checkout.push(color16);
+
+        //adress
+        let selectedAdress: HTMLOptionElement = <HTMLOptionElement>document.getElementById("adress");
+        let color17: string = "Adress: " + selectedAdress.value.substr(1);
+        sendRequestWithCustomData(color17);
+        checkout.push(color17);
+
+       
+
+        for (let i: number = 0; i < items.length; i++) {
+            let article: HTMLInputElement = items[i];
+            if (Number(article.value) > 0) {
+                let color: string = article.name + " " + article.value + " " + article.title + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                sendRequestWithCustomData(color);
+                checkout.push(color);
+
+            }
+        }
+
+        alert(checkout);
+
+    }
+
+    function sendRequestWithCustomData(_color: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
     }
 }

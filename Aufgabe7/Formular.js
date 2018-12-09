@@ -2,10 +2,12 @@ var Aufgabe7Shop;
 (function (Aufgabe7Shop) {
     document.addEventListener("DOMContentLoaded", createFieldset);
     document.addEventListener("DOMContentLoaded", decisionChanger);
+    document.addEventListener("DOMContentLoaded", init);
     function decisionChanger(_event) {
         let fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
+    let address = "https://eia2-manu.herokuapp.com/";
     let priceTree = 0;
     let priceBalls = 0;
     let priceBalls2 = 0;
@@ -382,6 +384,126 @@ var Aufgabe7Shop;
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;
+    }
+    //Progress. Wurde schon alles ausgew�hlt? Wenn ja--> nichts, wenn nein--> I'm sorry....
+    function checkProgress(_event) {
+        if (adress == "" || priceTree == 0 || priceBalls == 0 || priceShipping == 0 || priceCandle == 0 || priceLametta == 0 || priceAdditional == 0 || priceTreeStand == 0 || numberOfBalls == 0 || numberOfCandle == 0 || numberOfLametta == 0) {
+            document.getElementById("notSelectedYet").innerHTML = "I'm sorry, you need to fill out a few more things!";
+        }
+        else {
+            document.getElementById("notSelectedYet").innerHTML = "All done, thank you for your order!";
+        }
+    }
+    //7.2
+    function init(_event) {
+        document.getElementById("button").addEventListener("click", checkProgress);
+        setupAsyncForm();
+    }
+    function setupAsyncForm() {
+        let button = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event) {
+        let checkout = [];
+        let items = document.getElementsByTagName("input");
+        //trees 
+        let selectedTree = document.getElementById("trees");
+        let color1 = "Your order:    Tree: " + selectedTree.value.substr(1);
+        sendRequestWithCustomData(color1);
+        checkout.push(color1);
+        //balls
+        let selectedBalls = document.getElementById("balls");
+        let color2 = "Balls: " + selectedBalls.value.substr(1);
+        sendRequestWithCustomData(color2);
+        checkout.push(color2);
+        let selectedBallsAmount = document.getElementById("Many1");
+        let color3 = "Ball amount: " + selectedBallsAmount.value.substr(1);
+        sendRequestWithCustomData(color3);
+        checkout.push(color3);
+        let selectedBalls1 = document.getElementById("balls2");
+        let color4 = "Additional Balls 1: " + selectedBalls1.value.substr(1);
+        sendRequestWithCustomData(color4);
+        checkout.push(color4);
+        let selectedBallsAmount1 = document.getElementById("Many2");
+        let color5 = "Balls amount 1: " + selectedBallsAmount1.value.substr(1);
+        sendRequestWithCustomData(color5);
+        checkout.push(color5);
+        //candles
+        let selectedCandles = document.getElementById("candles");
+        let color6 = "Candles: " + selectedCandles.value.substr(1);
+        sendRequestWithCustomData(color6);
+        checkout.push(color6);
+        let selectedCandlesAmount = document.getElementById("Many3");
+        let color7 = "Candles amount: " + selectedCandlesAmount.value.substr(1);
+        sendRequestWithCustomData(color7);
+        checkout.push(color7);
+        let selectedCandles1 = document.getElementById("candles2");
+        let color8 = "Additional Candles 1: " + selectedCandles1.value.substr(1);
+        sendRequestWithCustomData(color8);
+        checkout.push(color8);
+        let selectedCandlesAmount1 = document.getElementById("Many4");
+        let color9 = "Candles amount 1: " + selectedCandlesAmount1.value.substr(1);
+        sendRequestWithCustomData(color9);
+        checkout.push(color9);
+        //lametta
+        let selectedLametta = document.getElementById("lamettas");
+        let color10 = "Lametta: " + selectedLametta.value.substr(1);
+        sendRequestWithCustomData(color10);
+        checkout.push(color10);
+        let selectedLamettaAmount = document.getElementById("Many5");
+        let color11 = "Lametta amount: " + selectedLamettaAmount.value.substr(1);
+        sendRequestWithCustomData(color11);
+        checkout.push(color11);
+        let selectedLametta1 = document.getElementById("lamettas2");
+        let color12 = "Additional Lametta 1: " + selectedLametta1.value.substr(1);
+        sendRequestWithCustomData(color12);
+        checkout.push(color12);
+        let selectedLamettaAmount1 = document.getElementById("Many6");
+        let color13 = "Lametta amount 1: " + selectedLamettaAmount1.value.substr(1);
+        sendRequestWithCustomData(color13);
+        checkout.push(color13);
+        //Top
+        let selectedTreeTop = document.getElementById("Radiogroup2");
+        let color14 = "Top: " + selectedTreeTop.value.substr(1);
+        sendRequestWithCustomData(color14);
+        checkout.push(color14);
+        //stand
+        let selectedTreeStand = document.getElementById("Radiogroup3");
+        let color15 = "Stand: " + selectedTreeStand.value.substr(1);
+        sendRequestWithCustomData(color15);
+        checkout.push(color15);
+        //shipping
+        let selectedShip = document.getElementById("Radiogroup4");
+        let color16 = "Shipping: " + selectedShip.value.substr(1);
+        sendRequestWithCustomData(color16);
+        checkout.push(color16);
+        //adress
+        let selectedAdress = document.getElementById("adress");
+        let color17 = "Adress: " + selectedAdress.value.substr(1);
+        sendRequestWithCustomData(color17);
+        checkout.push(color17);
+        for (let i = 0; i < items.length; i++) {
+            let article = items[i];
+            if (Number(article.value) > 0) {
+                let color = article.name + " " + article.value + " " + article.title + " " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
+                sendRequestWithCustomData(color);
+                checkout.push(color);
+            }
+        }
+        alert(checkout);
+    }
+    function sendRequestWithCustomData(_color) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", address + "?article=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
     }
 })(Aufgabe7Shop || (Aufgabe7Shop = {}));
 //# sourceMappingURL=Formular.js.map
