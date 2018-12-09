@@ -160,40 +160,43 @@ namespace Aufgabe7Shop {
         childNodeHTML += "<hr>";
         
         //Tree Top
+        
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Christmas Tree Top</legend>";
+        childNodeHTML += "<legend>Christams Tree Top</legend>";
+        childNodeHTML += "<select name='Select' id='treeTop'>";
         for (let i: number = 0; i < additional.length; i++) {
-
-            childNodeHTML += "<input type= 'radio' name= 'Radiogroup2' value='" + i + additional[i].name + " " + additional[i].price + " Euro' id='treeTop" + i + "' />";
-            childNodeHTML += "<label for= 'check" + i + "'>" + additional[i].name + " " + additional[i].price + "Euro</label>";
+            childNodeHTML += "<option value='" + i + additional[i].name + " " + additional[i].price + " Euro'>" + additional[i].name + " " + additional[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
 
         //Tree Stand
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Tree Stand</legend>";
+        childNodeHTML += "<select name=name='Select' id='treeStand'>";
         for (let i: number = 0; i < treeStand.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup3' value='" + i + treeStand[i].name + " " + treeStand[i].price + " Euro'  id='treeStand" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + treeStand[i].name + " " + treeStand[i].price + " Euro</label>";
+           childNodeHTML += "<option value='" + i + treeStand[i].name + " " + treeStand[i].price + " Euro'>" + treeStand[i].name + " " + treeStand[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
         
         //Shipping
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Shipping Methode</legend>";
+        childNodeHTML += "<select name=name='Select' id='Shippment'>";
         for (let i: number = 0; i < shipment.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup4' value='" + i + shipment[i].name + " " + shipment[i].price + " Euro'  id='shipping" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + shipment[i].name + " " + shipment[i].price + " Euro</label>";
+            childNodeHTML += "<option value='" + i + shipment[i].name + " " + shipment[i].price + " Euro'>" + shipment[i].name + " " + shipment[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
 
         //Adresse
         childNodeHTML += "<h3>Adresse</h3>";
-        childNodeHTML += "<input id='adresseTS' type='text' name='Text' placeholder='enter adress here' required/>";
-        
+        childNodeHTML += "<textarea id='adresseTS' name='Text' cols='30' rows='4' placeholder='enter adress here' >";
+        childNodeHTML += "</textarea>";
         childNodeHTML += "</fieldset>";
         
         node.innerHTML += childNodeHTML;
@@ -408,7 +411,7 @@ namespace Aufgabe7Shop {
         }
         
         //Tree Stand
-        if (target.name == "Radiogroup3") {
+        if (target.name == "treeStand") {
             let node: HTMLElement = document.getElementById("treeStandHTML");
             let value: string = target.value;
             let priceIndex: number = parseInt(value.substr(0, 1));
@@ -424,7 +427,7 @@ namespace Aufgabe7Shop {
         }
         
          //Tree top
-        if (target.name == "Radiogroup2") {
+        if (target.name == "treeTop") {
             let node: HTMLElement = document.getElementById("treeTopHTML");
             let value: string = target.value;
             let priceIndex: number = parseInt(value.substr(0, 1));
@@ -440,7 +443,7 @@ namespace Aufgabe7Shop {
         }
         
          //Shipping
-        if (target.name == "Radiogroup4") {
+        if (target.name == "Shippment") {
             let node: HTMLElement = document.getElementById("shippingHTML");
             let value: string = target.value;
             let priceIndex: number = parseInt(value.substr(0, 1));
@@ -576,28 +579,28 @@ namespace Aufgabe7Shop {
         checkout.push(color13);
 
         //Top
-        let selectedTreeTop: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup2");
+        let selectedTreeTop: HTMLOptionElement = <HTMLOptionElement>document.getElementById("treeTop");
         let color14: string = "Top: " + selectedTreeTop.value.substr(1);
         sendRequestWithCustomData(color14);
         checkout.push(color14);
         
         //stand
-        let selectedTreeStand: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup3");
+        let selectedTreeStand: HTMLOptionElement = <HTMLOptionElement>document.getElementById("treeStand");
         let color15: string = "Stand: " + selectedTreeStand.value.substr(1);
         sendRequestWithCustomData(color15);
         checkout.push(color15);
         
         //shipping
-        let selectedShip: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Radiogroup4");
+        let selectedShip: HTMLOptionElement = <HTMLOptionElement>document.getElementById("Shippment");
         let color16: string = "Shipping: " + selectedShip.value.substr(1);
         sendRequestWithCustomData(color16);
         checkout.push(color16);
 
         //adress
-        let selectedAdress: HTMLOptionElement = <HTMLOptionElement>document.getElementById("adress");
+       /* let selectedAdress: HTMLOptionElement = <HTMLOptionElement>document.getElementById("adress");
         let color17: string = "Adress: " + selectedAdress.value.substr(1);
         sendRequestWithCustomData(color17);
-        checkout.push(color17);
+        checkout.push(color17);*/
 
        
 

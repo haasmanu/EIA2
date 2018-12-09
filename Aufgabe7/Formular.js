@@ -128,34 +128,38 @@ var Aufgabe7Shop;
         childNodeHTML += "<hr>";
         //Tree Top
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Christmas Tree Top</legend>";
+        childNodeHTML += "<legend>Christams Tree Top</legend>";
+        childNodeHTML += "<select name='Select' id='treeTop'>";
         for (let i = 0; i < Aufgabe7Shop.additional.length; i++) {
-            childNodeHTML += "<input type= 'radio' name= 'Radiogroup2' value='" + i + Aufgabe7Shop.additional[i].name + " " + Aufgabe7Shop.additional[i].price + " Euro' id='treeTop" + i + "' />";
-            childNodeHTML += "<label for= 'check" + i + "'>" + Aufgabe7Shop.additional[i].name + " " + Aufgabe7Shop.additional[i].price + "Euro</label>";
+            childNodeHTML += "<option value='" + i + Aufgabe7Shop.additional[i].name + " " + Aufgabe7Shop.additional[i].price + " Euro'>" + Aufgabe7Shop.additional[i].name + " " + Aufgabe7Shop.additional[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
         //Tree Stand
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Tree Stand</legend>";
+        childNodeHTML += "<select name=name='Select' id='treeStand'>";
         for (let i = 0; i < Aufgabe7Shop.treeStand.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup3' value='" + i + Aufgabe7Shop.treeStand[i].name + " " + Aufgabe7Shop.treeStand[i].price + " Euro'  id='treeStand" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + Aufgabe7Shop.treeStand[i].name + " " + Aufgabe7Shop.treeStand[i].price + " Euro</label>";
+            childNodeHTML += "<option value='" + i + Aufgabe7Shop.treeStand[i].name + " " + Aufgabe7Shop.treeStand[i].price + " Euro'>" + Aufgabe7Shop.treeStand[i].name + " " + Aufgabe7Shop.treeStand[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
         //Shipping
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Shipping Methode</legend>";
+        childNodeHTML += "<select name=name='Select' id='Shippment'>";
         for (let i = 0; i < Aufgabe7Shop.shipment.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroup4' value='" + i + Aufgabe7Shop.shipment[i].name + " " + Aufgabe7Shop.shipment[i].price + " Euro'  id='shipping" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + Aufgabe7Shop.shipment[i].name + " " + Aufgabe7Shop.shipment[i].price + " Euro</label>";
+            childNodeHTML += "<option value='" + i + Aufgabe7Shop.shipment[i].name + " " + Aufgabe7Shop.shipment[i].price + " Euro'>" + Aufgabe7Shop.shipment[i].name + " " + Aufgabe7Shop.shipment[i].price + " Euro</option>";
         }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
         childNodeHTML += "<hr>";
         //Adresse
         childNodeHTML += "<h3>Adresse</h3>";
-        childNodeHTML += "<input id='adresseTS' type='text' name='Text' placeholder='enter adress here' required/>";
+        childNodeHTML += "<textarea id='adresseTS' name='Text' cols='30' rows='4' placeholder='enter adress here' >";
+        childNodeHTML += "</textarea>";
         childNodeHTML += "</fieldset>";
         node.innerHTML += childNodeHTML;
     }
@@ -326,7 +330,7 @@ var Aufgabe7Shop;
             node.innerHTML = childNodeHTML;
         }
         //Tree Stand
-        if (target.name == "Radiogroup3") {
+        if (target.name == "treeStand") {
             let node = document.getElementById("treeStandHTML");
             let value = target.value;
             let priceIndex = parseInt(value.substr(0, 1));
@@ -339,7 +343,7 @@ var Aufgabe7Shop;
             node.innerHTML = childNodeHTML;
         }
         //Tree top
-        if (target.name == "Radiogroup2") {
+        if (target.name == "treeTop") {
             let node = document.getElementById("treeTopHTML");
             let value = target.value;
             let priceIndex = parseInt(value.substr(0, 1));
@@ -352,7 +356,7 @@ var Aufgabe7Shop;
             node.innerHTML = childNodeHTML;
         }
         //Shipping
-        if (target.name == "Radiogroup4") {
+        if (target.name == "Shippment") {
             let node = document.getElementById("shippingHTML");
             let value = target.value;
             let priceIndex = parseInt(value.substr(0, 1));
@@ -463,25 +467,25 @@ var Aufgabe7Shop;
         sendRequestWithCustomData(color13);
         checkout.push(color13);
         //Top
-        let selectedTreeTop = document.getElementById("Radiogroup2");
+        let selectedTreeTop = document.getElementById("treeTop");
         let color14 = "Top: " + selectedTreeTop.value.substr(1);
         sendRequestWithCustomData(color14);
         checkout.push(color14);
         //stand
-        let selectedTreeStand = document.getElementById("Radiogroup3");
+        let selectedTreeStand = document.getElementById("treeStand");
         let color15 = "Stand: " + selectedTreeStand.value.substr(1);
         sendRequestWithCustomData(color15);
         checkout.push(color15);
         //shipping
-        let selectedShip = document.getElementById("Radiogroup4");
+        let selectedShip = document.getElementById("Shippment");
         let color16 = "Shipping: " + selectedShip.value.substr(1);
         sendRequestWithCustomData(color16);
         checkout.push(color16);
         //adress
-        let selectedAdress = document.getElementById("adress");
-        let color17 = "Adress: " + selectedAdress.value.substr(1);
-        sendRequestWithCustomData(color17);
-        checkout.push(color17);
+        /* let selectedAdress: HTMLOptionElement = <HTMLOptionElement>document.getElementById("adress");
+         let color17: string = "Adress: " + selectedAdress.value.substr(1);
+         sendRequestWithCustomData(color17);
+         checkout.push(color17);*/
         for (let i = 0; i < items.length; i++) {
             let article = items[i];
             if (Number(article.value) > 0) {
