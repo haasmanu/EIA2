@@ -50,7 +50,7 @@ export function find(_matrikel: MatrikelData, _callback: Function): void {
 
 function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
     if (_e)
-    _callback("Error" + _e);
+        _callback("Error" + _e);
         else
         // stringify creates a json-string, passed it back to _callback
         _callback(JSON.stringify(studentArray));

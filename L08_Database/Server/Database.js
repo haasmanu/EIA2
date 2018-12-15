@@ -44,6 +44,7 @@ function find(_matrikel, _callback) {
     function prepareAnswer(_e, studentArray) {
         if (_e)
             _callback("Error" + _e);
+        
         else
             // stringify creates a json-string, passed it back to _callback
             _callback(JSON.stringify(studentArray));
