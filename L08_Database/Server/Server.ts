@@ -43,6 +43,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
+        case "find":
+            let matrikel: MatrikelData = {
+            matrikel: parseInt(query["matrikel"])   
+            };
+            Database.find(matrikel, findCallback);
         default:
             respond(_response, "unknown command: " + command);
             break;

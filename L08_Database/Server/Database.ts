@@ -13,8 +13,8 @@ let students: Mongo.Collection;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb://testuser:testpassword@ds129532.mlab.com:29532/eia2";
-    databaseName = "eia2";
+    databaseURL = "mongodb://manuu:abc123@ds147190.mlab.com:47190/testtest";
+    databaseName = "testtest";
 }
 
 // try to connect to database, then activate callback "handleConnect" 
@@ -40,6 +40,23 @@ export function insert(_doc: StudentData): void {
 function handleInsert(_e: Mongo.MongoError): void {
     console.log("Database insertion returned -> " + _e);
 }
+
+//function "find" for Matrikelnummer
+export function find(_matrikel: MatrikelData, _callback: Function): void {
+    console.log(_matrikel);
+    var cursor: Mongo.Cursor = students.find(_matrikel);
+    cursor.toArray(prepareAnswer);
+    
+
+function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+    if (_e)
+    _callback("Error" + _e);
+        else
+        // stringify creates a json-string, passed it back to _callback
+        _callback(JSON.stringify(studentArray));
+}
+    }
+
 
 // try to fetch all documents from database, then activate callback
 export function findAll(_callback: Function): void {
