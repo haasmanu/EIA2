@@ -39,6 +39,7 @@ function handleRequest(_request, _response) {
                 matrikel: parseInt(query["matrikel"])
             };
             Database.find(matrikel, findCallback);
+            break;
         default:
             respond(_response, "unknown command: " + command);
             break;

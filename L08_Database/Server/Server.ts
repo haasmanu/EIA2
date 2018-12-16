@@ -48,6 +48,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             matrikel: parseInt(query["matrikel"])   
             };
             Database.find(matrikel, findCallback);
+            break;
         default:
             respond(_response, "unknown command: " + command);
             break;
