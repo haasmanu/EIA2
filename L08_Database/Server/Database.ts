@@ -57,7 +57,6 @@ function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void 
 }
     }
 
-
 // try to fetch all documents from database, then activate callback
 export function findAll(_callback: Function): void {
     // cursor points to the retreived set of documents in memory
