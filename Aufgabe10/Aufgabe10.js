@@ -24,13 +24,14 @@ var A10Canvas;
             snowFlake.color = "#ffffff";
             snowFlakes.push(snowFlake);
         }
-        for (let i = 0; i < 7; i++) {
-            let jimmyTheKid = new A10Canvas.Jimmy();
+        /*for (let i: number = 0; i < 7; i++) {
+            let jimmyTheKid: Jimmy = new Jimmy();
             jimmyTheKid.x = (Math.random() * 0 + 100);
             jimmyTheKid.y = (Math.random() * 400 + 450);
+            
             jimmyTheKid.colorJimmy = "#000000";
             jimmysTheKids.push(jimmyTheKid);
-        }
+        }*/
         for (let j = 0; j < 4; j++) {
             let timmyAndSled = new A10Canvas.Timmy();
             timmyAndSled.x = Math.random() * A10Canvas.crc2.canvas.width;
@@ -113,10 +114,10 @@ var A10Canvas;
             snowFlake.move();
             snowFlake.draw();
         }
-        for (let l = 0; l < 7; l++) {
-            let jimmyTheKid = jimmysTheKids[l];
+        /*for (let l: number = 0; l < 7; l++) {
+            let jimmyTheKid: Jimmy = jimmysTheKids[l];
             jimmyTheKid.draw();
-        }
+        }*/
         for (let k = 0; k < 4; k++) {
             let tree = trees[k];
             tree.draw();

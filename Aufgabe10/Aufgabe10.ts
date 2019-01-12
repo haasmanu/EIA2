@@ -30,14 +30,14 @@ namespace A10Canvas {
             snowFlakes.push(snowFlake);
         }
         
-        for (let i: number = 0; i < 7; i++) {
+        /*for (let i: number = 0; i < 7; i++) {
             let jimmyTheKid: Jimmy = new Jimmy();
             jimmyTheKid.x = (Math.random() * 0 + 100);
             jimmyTheKid.y = (Math.random() * 400 + 450);
             
             jimmyTheKid.colorJimmy = "#000000";
             jimmysTheKids.push(jimmyTheKid);
-        }
+        }*/
                 
         for (let j: number = 0; j < 4; j++) {
             let timmyAndSled: Timmy = new Timmy();
@@ -133,10 +133,10 @@ namespace A10Canvas {
             snowFlake.draw();    
         }
         
-        for (let l: number = 0; l < 7; l++) {
+        /*for (let l: number = 0; l < 7; l++) {
             let jimmyTheKid: Jimmy = jimmysTheKids[l];
             jimmyTheKid.draw();    
-        }
+        }*/
         
         for (let k: number = 0; k < 4; k++) {
             let tree: Tree = trees[k];
