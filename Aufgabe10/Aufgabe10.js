@@ -15,7 +15,7 @@ var A10Canvas;
         drawCloud();
         drawCloud2();
         drawCloud3();
-        imgData = A10Canvas.crc2.getImageData(0, 0, 520, 640);
+        imgData = A10Canvas.crc2.getImageData(0, 0, 820, 840);
         for (let i = 0; i < 150; i++) {
             let snowFlake = new A10Canvas.Snow();
             snowFlake.x = Math.random() * A10Canvas.crc2.canvas.width;
@@ -32,7 +32,7 @@ var A10Canvas;
             jimmyTheKid.colorJimmy = "#000000";
             jimmysTheKids.push(jimmyTheKid);
         }*/
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 10; j++) {
             let timmyAndSled = new A10Canvas.Timmy();
             timmyAndSled.x = Math.random() * A10Canvas.crc2.canvas.width;
             timmyAndSled.y = Math.random() * A10Canvas.crc2.canvas.height;
@@ -57,8 +57,8 @@ var A10Canvas;
         A10Canvas.crc2.fillStyle = "#00BFFF";
         A10Canvas.crc2.beginPath();
         A10Canvas.crc2.moveTo(0, 520);
-        A10Canvas.crc2.bezierCurveTo(180, 450, 280, 210, 660, 330);
-        A10Canvas.crc2.lineTo(520, 0);
+        A10Canvas.crc2.bezierCurveTo(180, 450, 280, 210, 860, 330);
+        A10Canvas.crc2.lineTo(820, 0);
         A10Canvas.crc2.lineTo(0, 0);
         A10Canvas.crc2.closePath();
         A10Canvas.crc2.lineWidth = 2;
@@ -122,7 +122,7 @@ var A10Canvas;
             let tree = trees[k];
             tree.draw();
         }
-        for (let j = 0; j < 4; j++) {
+        for (let j = 0; j < 10; j++) {
             let timmyAndSled = timmysAndSleds[j];
             timmyAndSled.move();
             timmyAndSled.draw();

@@ -19,7 +19,7 @@ namespace A10Canvas {
         drawCloud2();
         drawCloud3();
         
-        imgData = crc2.getImageData(0, 0, 520, 640);
+        imgData = crc2.getImageData(0, 0, 820, 840);
         
         for (let i: number = 0; i < 150; i++) {
             let snowFlake: Snow = new Snow();  
@@ -39,7 +39,7 @@ namespace A10Canvas {
             jimmysTheKids.push(jimmyTheKid);
         }*/
                 
-        for (let j: number = 0; j < 4; j++) {
+        for (let j: number = 0; j < 10; j++) {
             let timmyAndSled: Timmy = new Timmy();
             timmyAndSled.x = Math.random() * crc2.canvas.width;
             timmyAndSled.y = Math.random() * crc2.canvas.height;
@@ -68,8 +68,8 @@ namespace A10Canvas {
         crc2.fillStyle = "#00BFFF";
         crc2.beginPath();
         crc2.moveTo(0, 520);
-        crc2.bezierCurveTo(180, 450, 280, 210, 660, 330);
-        crc2.lineTo(520, 0);
+        crc2.bezierCurveTo(180, 450, 280, 210, 860, 330);
+        crc2.lineTo(820, 0);
         crc2.lineTo(0, 0);
         crc2.closePath();
         crc2.lineWidth = 2;
@@ -143,7 +143,7 @@ namespace A10Canvas {
             tree.draw();    
         }
         
-        for (let j: number = 0; j < 4; j++) {
+        for (let j: number = 0; j < 10; j++) {
             let timmyAndSled: Timmy = timmysAndSleds[j];
             timmyAndSled.move();
             timmyAndSled.draw();   
