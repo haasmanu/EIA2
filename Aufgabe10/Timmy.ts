@@ -50,7 +50,7 @@ namespace A10Canvas {
 
             if (this.y > 600) {
                 this.y = 0;
-                this.x = 520;
+                this.x = 820;
             }
 
             this.x +=  - 4;
