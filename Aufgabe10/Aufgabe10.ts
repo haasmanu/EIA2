@@ -30,16 +30,19 @@ namespace A10Canvas {
             snowFlakes.push(snowFlake);
         }
         
-        /*for (let i: number = 0; i < 7; i++) {
+        for (let i: number = 0; i < 7; i++) {
             let jimmyTheKid: Jimmy = new Jimmy();
-            jimmyTheKid.x = (Math.random() * 0 + 100);
-            jimmyTheKid.y = (Math.random() * 400 + 450);
+            jimmyTheKid.x = (Math.random() * 300 + 0);
+            jimmyTheKid.y = (Math.random() * 300 + 450);
+            jimmyTheKid.dx = Math.random() * 4 - 2;
+            jimmyTheKid.dy = Math.random() * 4 + 2;
             
             jimmyTheKid.colorJimmy = "#000000";
+            jimmyTheKid.colorSled = "#9d4e15";
             jimmysTheKids.push(jimmyTheKid);
-        }*/
+        }
                 
-        for (let j: number = 0; j < 10; j++) {
+        for (let j: number = 0; j < 6; j++) {
             let timmyAndSled: Timmy = new Timmy();
             timmyAndSled.x = Math.random() * crc2.canvas.width;
             timmyAndSled.y = Math.random() * crc2.canvas.height;
@@ -50,10 +53,10 @@ namespace A10Canvas {
             timmysAndSleds.push(timmyAndSled);
         }
         
-        for (let i: number = 0; i < 5; i++) {
+        for (let i: number = 0; i < 8; i++) {
             let tree: Tree = new Tree();
-            tree.x = (Math.random() * 200 + 300);
-            tree.y = (Math.random() * 200 + 350);
+            tree.x = (Math.random() * 300 + 300);
+            tree.y = (Math.random() * 300 + 550);
             
             tree.colorTree = "#008000";
             tree.colorWood = "#9d4e15";
@@ -68,7 +71,7 @@ namespace A10Canvas {
         crc2.fillStyle = "#00BFFF";
         crc2.beginPath();
         crc2.moveTo(0, 520);
-        crc2.bezierCurveTo(180, 450, 280, 210, 860, 330);
+        crc2.bezierCurveTo(180, 450, 280, 210, 860, 230);
         crc2.lineTo(820, 0);
         crc2.lineTo(0, 0);
         crc2.closePath();
@@ -133,17 +136,19 @@ namespace A10Canvas {
             snowFlake.draw();    
         }
         
-        /*for (let l: number = 0; l < 7; l++) {
+        for (let l: number = 0; l < 7; l++) {
             let jimmyTheKid: Jimmy = jimmysTheKids[l];
-            jimmyTheKid.draw();    
-        }*/
+            jimmyTheKid.move();
+            jimmyTheKid.draw(); 
+               
+        }
         
-        for (let k: number = 0; k < 4; k++) {
+        for (let k: number = 0; k < 8; k++) {
             let tree: Tree = trees[k];
             tree.draw();    
         }
         
-        for (let j: number = 0; j < 10; j++) {
+        for (let j: number = 0; j < 6; j++) {
             let timmyAndSled: Timmy = timmysAndSleds[j];
             timmyAndSled.move();
             timmyAndSled.draw();   
