@@ -6,9 +6,9 @@ var A10Canvas;
             this.x = Math.random() * (+4);
             this.x += this.dx;
             this.y += this.dy;
-            if (this.x < -150) {
-                this.x = Math.random() * 100 + 750; //random * streubreite + startposition
-                this.y = 1150;
+            if (this.x < -10) {
+                this.x = 400;
+                this.y = Math.random() * 250 + 400;
             }
         }
         draw() {
