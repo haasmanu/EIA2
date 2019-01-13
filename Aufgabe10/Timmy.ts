@@ -53,6 +53,7 @@ namespace A10Canvas {
                 this.x = 820;
             }
 
+        
             this.x +=  - 6;
             this.y += 2;
             this.draw();

@@ -143,6 +143,7 @@ namespace A10Canvas {
                
         }
         
+        
         for (let k: number = 0; k < 8; k++) {
             let tree: Tree = trees[k];
             tree.draw();    

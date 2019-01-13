@@ -17,6 +17,7 @@ var A10Canvas;
             A10Canvas.crc2.closePath();
             A10Canvas.crc2.stroke();
             A10Canvas.crc2.fill();
+            
             //Sled
             A10Canvas.crc2.fillStyle = this.colorSled;
             A10Canvas.crc2.strokeStyle = this.colorSled;

@@ -50,6 +50,7 @@ namespace A10Canvas {
                 this.y = 650;
                 this.x = 0;
             }
+            
 
             this.x += 4;
             this.y += - 2;
