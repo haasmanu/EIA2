@@ -30,7 +30,7 @@ var A10Canvas;
             jimmyTheKid.y = (Math.random() * 300 + 490);
             jimmyTheKid.dx = Math.random() * 2 - 4;
             jimmyTheKid.dy = Math.random() * 2 - 4;
-            jimmyTheKid.colorJimmy = "#000000";
+            jimmyTheKid.colorJimmy = "#9932CC";
             jimmyTheKid.colorSled = "#9d4e15";
             jimmysTheKids.push(jimmyTheKid);
         }
@@ -40,7 +40,7 @@ var A10Canvas;
             timmyAndSled.y = Math.random() * A10Canvas.crc2.canvas.height;
             timmyAndSled.dx = Math.random() * 2 - 4;
             timmyAndSled.dy = Math.random() * 2 + 4;
-            timmyAndSled.colorTimmy = "#000000";
+            timmyAndSled.colorTimmy = "#1E90FF";
             timmyAndSled.colorSled = "#9d4e15";
             timmysAndSleds.push(timmyAndSled);
         }
