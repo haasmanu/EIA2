@@ -47,8 +47,8 @@ namespace A10Canvas {
         move(): void {
 
             if (this.x > 820) {
-                this.y = 650;
-                this.x = 0;
+                this.y = 200 + 650;
+                this.x = 80 + 0;
             }
             
 

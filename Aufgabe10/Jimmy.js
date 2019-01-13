@@ -17,7 +17,6 @@ var A10Canvas;
             A10Canvas.crc2.closePath();
             A10Canvas.crc2.stroke();
             A10Canvas.crc2.fill();
-            
             //Sled
             A10Canvas.crc2.fillStyle = this.colorSled;
             A10Canvas.crc2.strokeStyle = this.colorSled;
@@ -36,8 +35,8 @@ var A10Canvas;
         }
         move() {
             if (this.x > 820) {
-                this.y = 650;
-                this.x = 0;
+                this.y = 200 + 650;
+                this.x = 80 + 0;
             }
             this.x += 4;
             this.y += -2;
