@@ -42,7 +42,7 @@ namespace A10Canvas {
             jimmysTheKids.push(jimmyTheKid);
         }
                 
-        for (let j: number = 0; j < 6; j++) {
+        for (let j: number = 0; j < 8; j++) {
             let timmyAndSled: Timmy = new Timmy();
             timmyAndSled.x = Math.random() * crc2.canvas.width;
             timmyAndSled.y = Math.random() * crc2.canvas.height;
@@ -148,7 +148,7 @@ namespace A10Canvas {
             tree.draw();    
         }
         
-        for (let j: number = 0; j < 6; j++) {
+        for (let j: number = 0; j < 8; j++) {
             let timmyAndSled: Timmy = timmysAndSleds[j];
             timmyAndSled.move();
             timmyAndSled.draw();   

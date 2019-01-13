@@ -34,8 +34,8 @@ var A10Canvas;
             A10Canvas.crc2.stroke();
         }
         move() {
-            if (this.y > 800) {
-                this.y = 0;
+            if (this.x > 820) {
+                this.y = 650;
                 this.x = 0;
             }
             this.x += 4;

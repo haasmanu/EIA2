@@ -48,12 +48,12 @@ namespace A10Canvas {
     
     move(): void {
 
-            if (this.y > 600) {
-                this.y = 0;
+            if (this.x < - 150) {
+                this.y = 30 + this.dy;
                 this.x = 820;
             }
 
-            this.x +=  - 4;
+            this.x +=  - 6;
             this.y += 2;
             this.draw();
         }

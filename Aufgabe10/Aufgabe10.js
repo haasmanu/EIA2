@@ -34,7 +34,7 @@ var A10Canvas;
             jimmyTheKid.colorSled = "#9d4e15";
             jimmysTheKids.push(jimmyTheKid);
         }
-        for (let j = 0; j < 6; j++) {
+        for (let j = 0; j < 8; j++) {
             let timmyAndSled = new A10Canvas.Timmy();
             timmyAndSled.x = Math.random() * A10Canvas.crc2.canvas.width;
             timmyAndSled.y = Math.random() * A10Canvas.crc2.canvas.height;
@@ -125,7 +125,7 @@ var A10Canvas;
             let tree = trees[k];
             tree.draw();
         }
-        for (let j = 0; j < 6; j++) {
+        for (let j = 0; j < 8; j++) {
             let timmyAndSled = timmysAndSleds[j];
             timmyAndSled.move();
             timmyAndSled.draw();
