@@ -27,9 +27,9 @@ var A10Canvas;
         for (let i = 0; i < 7; i++) {
             let jimmyTheKid = new A10Canvas.Jimmy();
             jimmyTheKid.x = (Math.random() * 300 + 0);
-            jimmyTheKid.y = (Math.random() * 300 + 450);
+            jimmyTheKid.y = (Math.random() * 300 + 490);
             jimmyTheKid.dx = Math.random() * 2 - 4;
-            jimmyTheKid.dy = Math.random() * 2 + 4;
+            jimmyTheKid.dy = Math.random() * 2 - 4;
             jimmyTheKid.colorJimmy = "#000000";
             jimmyTheKid.colorSled = "#9d4e15";
             jimmysTheKids.push(jimmyTheKid);
