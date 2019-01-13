@@ -34,8 +34,8 @@ namespace A10Canvas {
             let jimmyTheKid: Jimmy = new Jimmy();
             jimmyTheKid.x = (Math.random() * 300 + 0);
             jimmyTheKid.y = (Math.random() * 300 + 450);
-            jimmyTheKid.dx = Math.random() * 4 - 2;
-            jimmyTheKid.dy = Math.random() * 4 + 2;
+            jimmyTheKid.dx = Math.random() * 2 - 4;
+            jimmyTheKid.dy = Math.random() * 2 + 4;
             
             jimmyTheKid.colorJimmy = "#000000";
             jimmyTheKid.colorSled = "#9d4e15";
