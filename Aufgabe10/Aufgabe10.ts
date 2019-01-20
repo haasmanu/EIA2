@@ -22,6 +22,7 @@ namespace A10Canvas {
         imgData = crc2.getImageData(0, 0, 820, 840);
         
         for (let i: number = 0; i < 150; i++) {
+           
             let snowFlake: Snow = new Snow();  
             snowFlake.x = Math.random() * crc2.canvas.width;
             snowFlake.y = Math.random() * crc2.canvas.height;
