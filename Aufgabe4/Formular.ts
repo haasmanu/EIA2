@@ -17,8 +17,6 @@ namespace Aufgabe4Shop {
     let priceTreeStand: number = 0;
     let priceShipping: number = 0;
 
-    let numberOfBalls: number = 0;
-    let numberOfCandle: number = 0;
     let adress: string = "";
 
 
@@ -36,7 +34,7 @@ namespace Aufgabe4Shop {
         }
         childNodeHTML += "</select>";
         childNodeHTML += "<hr>";
-
+        
         //Balls
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Christmas Balls</legend>";
@@ -46,8 +44,7 @@ namespace Aufgabe4Shop {
             childNodeHTML += "<option value='" + i + treeBall[i].name + " " + treeBall[i].price + " Euro'>" + treeBall[i].name + " " + treeBall[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-
+        
         childNodeHTML += "<h3>How many?</h3>";
         childNodeHTML += "<select name='Select' id='Many1'>";
         for (let i: number = 0; i < 39; i++) {
@@ -55,33 +52,68 @@ namespace Aufgabe4Shop {
             childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
+        childNodeHTML += "<hr>";
+        
+        //Balls
+        childNodeHTML += "<legend>Christmas Balls Additional</legend>";
+        childNodeHTML += "<select name='Select' id='balls2'>";
+        for (let i: number = 0; i < treeBall.length; i++) {
+
+            childNodeHTML += "<option value='" + i + treeBall[i].name + " " + treeBall[i].price + " Euro'>" + treeBall[i].name + " " + treeBall[i].price + " Euro</option>";
+        }
+        childNodeHTML += "</select>";
+        
+        childNodeHTML += "<h3>How many?</h3>";
+        childNodeHTML += "<select name='Select' id='Many2'>";
+        for (let i: number = 0; i < 39; i++) {
+
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
+        }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Candles
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Candels</legend>";
+        childNodeHTML += "<legend>Candles</legend>";
         childNodeHTML += "<select name='Select' id='candles'>";
         for (let i: number = 0; i < candle.length; i++) {
 
             childNodeHTML += "<option value='" + i + candle[i].name + " " + candle[i].price + " Euro'>" + candle[i].name + " " + candle[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-
+        
         childNodeHTML += "<h3>How many?</h3>";
-        childNodeHTML += "<select name='Select' id='Many2'>";
-        for (let i: number = 0; i < 23; i++) {
+        childNodeHTML += "<select name='Select' id='Many3'>";
+        for (let i: number = 0; i < 39; i++) {
 
             childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
+        childNodeHTML += "<hr>";
+        
+        //Candles Additional
+        childNodeHTML += "<legend>Candles Additional</legend>";
+        childNodeHTML += "<select name='Select' id='candles2'>";
+        for (let i: number = 0; i < candle.length; i++) {
+
+            childNodeHTML += "<option value='" + i + candle[i].name + " " + candle[i].price + " Euro'>" + candle[i].name + " " + candle[i].price + " Euro</option>";
+        }
+        childNodeHTML += "</select>";
+        
+        childNodeHTML += "<h3>How many?</h3>";
+        childNodeHTML += "<select name='Select' id='Many4'>";
+        for (let i: number = 0; i < 39; i++) {
+
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
+        }
+        childNodeHTML += "</select>"; 
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         
         //Lametta
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Lametta</legend>";
+        childNodeHTML += "<legend>Lametta 1.5m</legend>";
         for (let i: number = 0; i < lametta.length; i++) {
             childNodeHTML += "<input type= 'radio' name= 'Radiogroup1' value='" + i + lametta[i].name + " " + lametta[i].price + " Euro' id='lamettas" + i + "' />";
             childNodeHTML += "<label for= 'check" + i + "'>" + lametta[i].name + " " + lametta[i].price + "Euro</label>";
@@ -98,7 +130,7 @@ namespace Aufgabe4Shop {
             childNodeHTML += "<label for= 'check" + i + "'>" + additional[i].name + " " + additional[i].price + "Euro</label>";
         }
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
 
         //Tree Stand
         childNodeHTML += "<fieldset>";
@@ -166,21 +198,6 @@ namespace Aufgabe4Shop {
             node.innerHTML = childNodeHTML;
         }
         
-        if (target.id == "Many1") {
-            let node: HTMLElement = document.getElementById("ballMany");
-            let value: string = target.value;
-            let numIndex: number = parseInt(value.substr(1, 2));
-            numberOfBalls = numIndex;
-            let childNodeHTML: string;
-
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-
-            node.innerHTML = childNodeHTML;
-        }
-        
         //Candles
         if (target.id == "candles") {
             let node: HTMLElement = document.getElementById("candleHTML");
@@ -193,22 +210,6 @@ namespace Aufgabe4Shop {
             childNodeHTML = "";
             childNodeHTML += "<a>";
             childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-
-            node.innerHTML = childNodeHTML;
-        }
-
-        if (target.id == "Many2") {
-            let node: HTMLElement = document.getElementById("candleMany");
-            let value: string = target.value;
-            let numIndex: number = parseInt(value.substr(1, 2));
-            numberOfCandle = numIndex;
-            console.log(numberOfCandle);
-            let childNodeHTML: string;
-
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
             childNodeHTML += "</a>";
 
             node.innerHTML = childNodeHTML;
@@ -298,7 +299,7 @@ namespace Aufgabe4Shop {
 
         childNodeHTML = "";
         childNodeHTML += "<a>";
-        childNodeHTML += (priceTree + (priceBalls * numberOfBalls) + (priceCandle * numberOfCandle) + priceLametta + priceTreeStand + priceAdditional + priceShipping);
+        childNodeHTML += (priceTree + priceBalls + priceCandle + priceLametta + priceTreeStand + priceAdditional + priceShipping);
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;

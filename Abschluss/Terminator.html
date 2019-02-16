@@ -1,0 +1,57 @@
+<!-- Aufgabe: Terminator
+Name: Manuiel Haas
+Matrikel: 259127
+Datum: 28.12.2018
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="Main.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/Everything.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/Moving.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/Tree.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/SnowFlakes.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/SarahConnar.js" type="text/javascript" charset="utf-8"></script>
+<script src="Classes/Snowball.js" type="text/javascript" charset="utf-8"></script>
+<script src="Client/DatabaseClient.js" type="text/javascript" charset="utf-8"></script>
+
+<title>Abschluss Aufgabe</title>
+</head>
+<body>
+	<div id="startScreen">
+		
+		<h1>Rodelhang-Terminator</h1>
+		<h3>Try to terminate as many <br>Sarah Connars as possible</h3>
+		<button id="start">Let's Go</button>	
+	</div>
+	
+	<div id="overlay">
+		<p id="score"></p>
+		<p id="snowballs"></p>
+		<p id="timer"></p>
+	</div>
+	
+	<div id="endscreen">
+		<fieldset id="input">
+			<legend> Type student data here </legend>
+			<input type="text" name="name" placeholder="name" id="name" />
+			<input type="hidden" name="score" id="scoreinput" />
+			<button type="button" id="insert">Insert to database</button>
+		</fieldset>
+		<fieldset id="output">
+			<legend> All student data </legend>
+			<button type="button" id="refresh">Refresh</button>
+			<textarea rows="20" cols="90"> </textarea>
+			
+			<button type="button" id="find">Find</button>
+		</fieldset>
+	
+	</div>
+	<canvas width=820 height=840></canvas>
+
+</body>
+</html>

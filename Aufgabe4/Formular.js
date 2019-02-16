@@ -13,8 +13,6 @@ var Aufgabe4Shop;
     let priceAdditional = 0;
     let priceTreeStand = 0;
     let priceShipping = 0;
-    let numberOfBalls = 0;
-    let numberOfCandle = 0;
     let adress = "";
     function createFieldset() {
         let node = document.getElementById("fieldset");
@@ -36,35 +34,61 @@ var Aufgabe4Shop;
             childNodeHTML += "<option value='" + i + Aufgabe4Shop.treeBall[i].name + " " + Aufgabe4Shop.treeBall[i].price + " Euro'>" + Aufgabe4Shop.treeBall[i].name + " " + Aufgabe4Shop.treeBall[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
         childNodeHTML += "<h3>How many?</h3>";
         childNodeHTML += "<select name='Select' id='Many1'>";
         for (let i = 0; i < 39; i++) {
             childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
+        childNodeHTML += "<hr>";
+        //Balls
+        childNodeHTML += "<legend>Christmas Balls Additional</legend>";
+        childNodeHTML += "<select name='Select' id='balls2'>";
+        for (let i = 0; i < Aufgabe4Shop.treeBall.length; i++) {
+            childNodeHTML += "<option value='" + i + Aufgabe4Shop.treeBall[i].name + " " + Aufgabe4Shop.treeBall[i].price + " Euro'>" + Aufgabe4Shop.treeBall[i].name + " " + Aufgabe4Shop.treeBall[i].price + " Euro</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<h3>How many?</h3>";
+        childNodeHTML += "<select name='Select' id='Many2'>";
+        for (let i = 0; i < 39; i++) {
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
+        }
+        childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Candles
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Candels</legend>";
+        childNodeHTML += "<legend>Candles</legend>";
         childNodeHTML += "<select name='Select' id='candles'>";
         for (let i = 0; i < Aufgabe4Shop.candle.length; i++) {
             childNodeHTML += "<option value='" + i + Aufgabe4Shop.candle[i].name + " " + Aufgabe4Shop.candle[i].price + " Euro'>" + Aufgabe4Shop.candle[i].name + " " + Aufgabe4Shop.candle[i].price + " Euro</option>";
         }
         childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
         childNodeHTML += "<h3>How many?</h3>";
-        childNodeHTML += "<select name='Select' id='Many2'>";
-        for (let i = 0; i < 23; i++) {
+        childNodeHTML += "<select name='Select' id='Many3'>";
+        for (let i = 0; i < 39; i++) {
+            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<hr>";
+        //Candles Additional
+        childNodeHTML += "<legend>Candles Additional</legend>";
+        childNodeHTML += "<select name='Select' id='candles2'>";
+        for (let i = 0; i < Aufgabe4Shop.candle.length; i++) {
+            childNodeHTML += "<option value='" + i + Aufgabe4Shop.candle[i].name + " " + Aufgabe4Shop.candle[i].price + " Euro'>" + Aufgabe4Shop.candle[i].name + " " + Aufgabe4Shop.candle[i].price + " Euro</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<h3>How many?</h3>";
+        childNodeHTML += "<select name='Select' id='Many4'>";
+        for (let i = 0; i < 39; i++) {
             childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
         }
         childNodeHTML += "</select>";
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Lametta
         childNodeHTML += "<fieldset>";
-        childNodeHTML += "<legend>Lametta</legend>";
+        childNodeHTML += "<legend>Lametta 1.5m</legend>";
         for (let i = 0; i < Aufgabe4Shop.lametta.length; i++) {
             childNodeHTML += "<input type= 'radio' name= 'Radiogroup1' value='" + i + Aufgabe4Shop.lametta[i].name + " " + Aufgabe4Shop.lametta[i].price + " Euro' id='lamettas" + i + "' />";
             childNodeHTML += "<label for= 'check" + i + "'>" + Aufgabe4Shop.lametta[i].name + " " + Aufgabe4Shop.lametta[i].price + "Euro</label>";
@@ -79,7 +103,7 @@ var Aufgabe4Shop;
             childNodeHTML += "<label for= 'check" + i + "'>" + Aufgabe4Shop.additional[i].name + " " + Aufgabe4Shop.additional[i].price + "Euro</label>";
         }
         childNodeHTML += "</fieldset>";
-        childNodeHTML += "<br>";
+        childNodeHTML += "<hr>";
         //Tree Stand
         childNodeHTML += "<fieldset>";
         childNodeHTML += "<legend>Tree Stand</legend>";
@@ -132,18 +156,6 @@ var Aufgabe4Shop;
             childNodeHTML += "</a>";
             node.innerHTML = childNodeHTML;
         }
-        if (target.id == "Many1") {
-            let node = document.getElementById("ballMany");
-            let value = target.value;
-            let numIndex = parseInt(value.substr(1, 2));
-            numberOfBalls = numIndex;
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
         //Candles
         if (target.id == "candles") {
             let node = document.getElementById("candleHTML");
@@ -155,19 +167,6 @@ var Aufgabe4Shop;
             childNodeHTML = "";
             childNodeHTML += "<a>";
             childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        if (target.id == "Many2") {
-            let node = document.getElementById("candleMany");
-            let value = target.value;
-            let numIndex = parseInt(value.substr(1, 2));
-            numberOfCandle = numIndex;
-            console.log(numberOfCandle);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
             childNodeHTML += "</a>";
             node.innerHTML = childNodeHTML;
         }
@@ -239,7 +238,7 @@ var Aufgabe4Shop;
         let childNodeHTML;
         childNodeHTML = "";
         childNodeHTML += "<a>";
-        childNodeHTML += (priceTree + (priceBalls * numberOfBalls) + (priceCandle * numberOfCandle) + priceLametta + priceTreeStand + priceAdditional + priceShipping);
+        childNodeHTML += (priceTree + priceBalls + priceCandle + priceLametta + priceTreeStand + priceAdditional + priceShipping);
         childNodeHTML += " Euro";
         childNodeHTML += "</a>";
         node.innerHTML = childNodeHTML;
