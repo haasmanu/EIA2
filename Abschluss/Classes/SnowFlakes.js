@@ -5,7 +5,7 @@ var terminator;
             super();
         }*/
         move() {
-            this.y += this.dy;
+            this.y += this.speed;
             if (this.y > terminator.crc2.canvas.height + 2) {
                 this.y = -2;
             }

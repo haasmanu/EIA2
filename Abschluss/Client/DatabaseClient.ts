@@ -6,10 +6,8 @@ namespace DatabaseClient {
     function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
-        let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
         let findButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("find");
         insertButton.addEventListener("click", insert);
-        refreshButton.addEventListener("click", refresh);
         findButton.addEventListener("click", find);
     }
 
@@ -21,18 +19,12 @@ namespace DatabaseClient {
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-
-    function refresh(_event: Event): void {
-        let query: string = "command=refresh";
-        sendRequest(query, handleFindResponse);
-    }
     
     function find(_event: Event): void {
-        let search: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelFind");
         let query: string = "command=findHighest";
         console.log(query);
         sendRequest(query, handleFindResponse);
-        }
+    }
 
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();

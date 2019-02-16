@@ -7,7 +7,7 @@ namespace terminator {
         }*/
         
         move(): void {
-            this.y += this.dy;
+            this.y += this.speed;
             
             if (this.y > crc2.canvas.height + 2) {
                 this.y = -2;    

@@ -10,18 +10,36 @@ namespace terminator {
     let trees: Everything[] = [];
     let sarahs: Sarah[] = [];
     let snowballs: Snowball[] = [];
-    let snowballsLeft = 15;
+    let snowballsLeft: number = 15;
     let ended: boolean = false;
-   
+    let timercanceller: NodeJS.Timer;
+    
     function preInit(): void {
         document.getElementById("start").addEventListener("click", init);
-            
+        document.getElementById("restart").addEventListener("click", init);
+
     }
     
     function init(_event: Event): void {
-        document.getElementById("startScreen").style.display = "none";
+            
+        fps = 25;
+        score = 0;
+        timer = 60;
+        snowFlakes = [];
+        trees = [];
+        sarahs = [];
+        snowballs = [];
+        snowballsLeft = 15;
         ended = false;
-        setInterval(decreaseTimer, 1000);
+            
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("endscreen").style.display = "none";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementsByTagName("canvas")[0].style.display = "block";
+
+        ended = false;
+        timercanceller = setInterval(decreaseTimer, 1000);
+        
         document.getElementById("timer").innerHTML = "Timer: " + timer + "sec";
         document.getElementById("snowballs").innerHTML = snowballsLeft + " Snowballs left";
         document.getElementById("score").innerHTML = "Score: " + score;
@@ -30,7 +48,7 @@ namespace terminator {
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        
+        crc2.clearRect(0, 0, canvas.width, canvas.height);
         drawSky();
         drawSun();
         drawCloud();
@@ -45,18 +63,16 @@ namespace terminator {
             sarah.state = "down";
             sarah.x = (Math.random() * 300 + 0);
             sarah.y = (Math.random() * 300 + 490);
-            sarah.dx = Math.random() * 2 - 4;
-            sarah.dy = Math.random() * 2 - 4;
+            sarah.speed = Math.random() + 0.5;
             sarahs.push(sarah);
         }
         
         
         for (let i: number = 0; i < 150; i++) {
-           
-        let snowFlake: Moving = new SnowFlake();
+            let snowFlake: Moving = new SnowFlake();
             snowFlake.x = Math.random() * crc2.canvas.width;
             snowFlake.y = Math.random() * crc2.canvas.height;
-            snowFlake.dy = Math.random() * 2 + 4;  
+            snowFlake.speed = Math.random() * 2 + 4;  
             snowFlakes.push(snowFlake);
         }
         
@@ -71,10 +87,10 @@ namespace terminator {
     
     function endScreen(): void {
         ended = true;
-        
-        let scoreinput: HTMLInputElement = document.getElementById("scoreinput") as HTMLInputElement
+        clearInterval(timercanceller);
+        let scoreinput: HTMLInputElement = document.getElementById("scoreinput") as HTMLInputElement;
         scoreinput.value = String(score);
-        
+        document.getElementById("overlay").style.display = "none";
         document.getElementById("endscreen").style.display = "block";
         document.getElementsByTagName("canvas")[0].style.display = "none";
     }
@@ -84,7 +100,7 @@ namespace terminator {
         document.getElementById("timer").innerHTML = "Timer: " + timer + "sec";
         if (timer <= 0) {
             endScreen();    
-        }else{
+        } else {
             timer--;
         }
     }
@@ -186,9 +202,9 @@ namespace terminator {
                 let snowball: Snowball = snowballs[i];
                 if (snowball.hasHit(sarah)) {
                     sarah.state = "terminated";
-                    score += 100;
+                    score += Math.floor(sarah.speed * 150);
                     document.getElementById("score").innerHTML = "Score: " + score;
-                    if (score == sarahs.length * 100) {
+                    if (sarahs.every(isTerminated)) {
                         endScreen();   
                     }
                 }
@@ -206,5 +222,8 @@ namespace terminator {
             let tree: Tree = trees[k];
             tree.draw();    
         }
-
-}}
+    }
+    function isTerminated(s: Sarah): boolean {
+        return s.state == "terminated";
+    }
+}

@@ -1,10 +1,9 @@
 namespace terminator {
     
     export class Moving extends Everything {
-        dx: number;
-        dy: number;
+        speed: number;
 
         move(): void {};
         draw(): void {};
-        }
+    }
 }

@@ -33,8 +33,8 @@ namespace terminator {
             
             moveDown(): void {
                 
-                this.x +=  - 6;
-                this.y += 2;
+                this.x -= this.speed * 6;
+                this.y += this.speed * 2;
                 
                 if (this.x < 0) {
                     this.state = "up";    
@@ -44,9 +44,8 @@ namespace terminator {
         
             moveUp(): void {
                 
-                this.x += 6;
-                this.y += - 2;
-                
+                this.x += this.speed * 6;
+                this.y -= this.speed * 2;
                 if (this.x > 820) {
                     this.state = "down";    
                 }
@@ -55,8 +54,8 @@ namespace terminator {
         
             moveDownSled(): void {
                 
-                this.x +=  - 6;
-                this.y += 2;
+                this.x -= this.speed * 6;
+                this.y += this.speed * 2;
                 
             }
             

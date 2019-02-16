@@ -6,10 +6,8 @@ var DatabaseClient;
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
-        let refreshButton = document.getElementById("refresh");
         let findButton = document.getElementById("find");
         insertButton.addEventListener("click", insert);
-        refreshButton.addEventListener("click", refresh);
         findButton.addEventListener("click", find);
     }
     function insert(_event) {
@@ -20,12 +18,7 @@ var DatabaseClient;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function refresh(_event) {
-        let query = "command=refresh";
-        sendRequest(query, handleFindResponse);
-    }
     function find(_event) {
-        let search = document.getElementById("matrikelFind");
         let query = "command=findHighest";
         console.log(query);
         sendRequest(query, handleFindResponse);

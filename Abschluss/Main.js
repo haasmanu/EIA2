@@ -11,19 +11,34 @@ var terminator;
     let snowballs = [];
     let snowballsLeft = 15;
     let ended = false;
+    let timercanceller;
     function preInit() {
         document.getElementById("start").addEventListener("click", init);
+        document.getElementById("restart").addEventListener("click", init);
     }
     function init(_event) {
-        document.getElementById("startScreen").style.display = "none";
+        fps = 25;
+        score = 0;
+        timer = 60;
+        snowFlakes = [];
+        trees = [];
+        sarahs = [];
+        snowballs = [];
+        snowballsLeft = 15;
         ended = false;
-        setInterval(decreaseTimer, 1000);
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("endscreen").style.display = "none";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementsByTagName("canvas")[0].style.display = "block";
+        ended = false;
+        timercanceller = setInterval(decreaseTimer, 1000);
         document.getElementById("timer").innerHTML = "Timer: " + timer + "sec";
         document.getElementById("snowballs").innerHTML = snowballsLeft + " Snowballs left";
         document.getElementById("score").innerHTML = "Score: " + score;
         document.getElementsByTagName("canvas")[0].addEventListener("click", createSnowball);
         let canvas = document.getElementsByTagName("canvas")[0];
         terminator.crc2 = canvas.getContext("2d");
+        terminator.crc2.clearRect(0, 0, canvas.width, canvas.height);
         drawSky();
         drawSun();
         drawCloud();
@@ -35,15 +50,14 @@ var terminator;
             sarah.state = "down";
             sarah.x = (Math.random() * 300 + 0);
             sarah.y = (Math.random() * 300 + 490);
-            sarah.dx = Math.random() * 2 - 4;
-            sarah.dy = Math.random() * 2 - 4;
+            sarah.speed = Math.random() + 0.5;
             sarahs.push(sarah);
         }
         for (let i = 0; i < 150; i++) {
             let snowFlake = new terminator.SnowFlake();
             snowFlake.x = Math.random() * terminator.crc2.canvas.width;
             snowFlake.y = Math.random() * terminator.crc2.canvas.height;
-            snowFlake.dy = Math.random() * 2 + 4;
+            snowFlake.speed = Math.random() * 2 + 4;
             snowFlakes.push(snowFlake);
         }
         for (let i = 0; i < 8; i++) {
@@ -56,8 +70,10 @@ var terminator;
     }
     function endScreen() {
         ended = true;
+        clearInterval(timercanceller);
         let scoreinput = document.getElementById("scoreinput");
         scoreinput.value = String(score);
+        document.getElementById("overlay").style.display = "none";
         document.getElementById("endscreen").style.display = "block";
         document.getElementsByTagName("canvas")[0].style.display = "none";
     }
@@ -159,9 +175,9 @@ var terminator;
                 let snowball = snowballs[i];
                 if (snowball.hasHit(sarah)) {
                     sarah.state = "terminated";
-                    score += 100;
+                    score += Math.floor(sarah.speed * 150);
                     document.getElementById("score").innerHTML = "Score: " + score;
-                    if (score == sarahs.length * 100) {
+                    if (sarahs.every(isTerminated)) {
                         endScreen();
                     }
                 }
@@ -177,6 +193,9 @@ var terminator;
             let tree = trees[k];
             tree.draw();
         }
+    }
+    function isTerminated(s) {
+        return s.state == "terminated";
     }
 })(terminator || (terminator = {}));
 //# sourceMappingURL=Main.js.map

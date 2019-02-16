@@ -24,22 +24,22 @@ var terminator;
             }
         }
         moveDown() {
-            this.x += -6;
-            this.y += 2;
+            this.x -= this.speed * 6;
+            this.y += this.speed * 2;
             if (this.x < 0) {
                 this.state = "up";
             }
         }
         moveUp() {
-            this.x += 6;
-            this.y += -2;
+            this.x += this.speed * 6;
+            this.y -= this.speed * 2;
             if (this.x > 820) {
                 this.state = "down";
             }
         }
         moveDownSled() {
-            this.x += -6;
-            this.y += 2;
+            this.x -= this.speed * 6;
+            this.y += this.speed * 2;
         }
         drawSarahUp() {
             terminator.crc2.fillStyle = "#1E90FF";
