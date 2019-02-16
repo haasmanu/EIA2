@@ -45,7 +45,7 @@ function handleInsert(_e: Mongo.MongoError): void {
 
 //function "find" for Matrikelnummer
 export function findHighest(_callback: Function): void {
-    var cursor: Mongo.Cursor = students.find().sort({score: "-1"}).limit(10);
+    var cursor: Mongo.Cursor = students.find().sort({score: -1}).limit(10);
     cursor.toArray(prepareAnswer);
 
     

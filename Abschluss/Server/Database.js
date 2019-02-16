@@ -38,7 +38,7 @@ function handleInsert(_e) {
 }
 //function "find" for Matrikelnummer
 function findHighest(_callback) {
-    var cursor = students.find().sort({ score: "-1" }).limit(10);
+    var cursor = students.find().sort({ score: -1 }).limit(10);
     cursor.toArray(prepareAnswer);
     function prepareAnswer(_e, studentArray) {
         if (_e) {
