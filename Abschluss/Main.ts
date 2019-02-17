@@ -107,12 +107,13 @@ namespace terminator {
     
     function createSnowball(e: MouseEvent): void {
         if (snowballsLeft == 0) {
-            if(snowballs.length == 0)
+            if ( snowballs.length == 0)
                 endScreen();
             return;
         }
         snowballsLeft--;
-        document.getElementById("snowballs").innerHTML = snowballsLeft +" Snowballs left";
+        document.getElementById("snowballs").innerHTML = snowballsLeft + " Snowballs left";
+        
         let snowball: Snowball = new Snowball();
         snowball.x = e.offsetX;
         snowball.y = e.offsetY;

@@ -2,6 +2,7 @@ namespace terminator {
     export class Snowball extends Everything {
         updatesTillImpact: number;
         hasHit(sarah: Everything): boolean {
+            
             if (this.updatesTillImpact > 0) {
                 return;
             }
@@ -35,7 +36,7 @@ namespace terminator {
             crc2.lineWidth = 1;
             
             crc2.beginPath();
-            crc2.arc(this.x, this.y, 10+(this.updatesTillImpact), 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, 10 + (this.updatesTillImpact), 0, 2 * Math.PI);
             crc2.fillStyle = "#ffffff";
             crc2.fill();
             crc2.closePath();
